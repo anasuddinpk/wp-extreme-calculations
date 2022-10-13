@@ -50,7 +50,7 @@ jQuery(document).ready(
 
                 $('.crcalc1').html('$' + (Math.round($('#crtotalrevenue').val() / $('#crordernumber').val())).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                 $('.crcalc2').html(Number.parseFloat($('#crordernumber').val() / $('#crcustomernumber').val()).toFixed(2));
-                // $('.cpmcalc3').html('$' + (Number.parseFloat(($('#cpmcampaigncost').val() * 1000) / $('#cpmadimpressions').val()).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                $('.crcalc3').html('$' + (Math.round(($('#crtotalrevenue').val() / $('#crcustomernumber').val()) * 2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 
                 console.log('testing cr calculations')
 
