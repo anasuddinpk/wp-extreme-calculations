@@ -33,7 +33,7 @@
                         <input type="number" class="form-control cr-calc-fields rounded-0" id="crtotalrevenue" placeholder="Total Revenue Generated">
                         <label for="crtotalrevenue">Total Revenue Generated</label>
                     </div>
-                    <span class="input-group-text">$ $ $</span>
+                    <span class="input-group-text rounded-0">$ $ $</span>
 
                 </div>
             </div>
@@ -51,12 +51,11 @@
 
     </div>
 
-    <div class="list-group cr-calc-results shadow-sm" style="display: none;">
+    <div class="list-group container pe-0 cr-calc-results shadow-sm" style="display: none;">
 
         <span class="list-group-item py-3 extreme-results-header" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
                 <h4 class="mb-1">Customer Retention Outcomes</h4>
-                <!-- <small class="px-3">Values</small> -->
             </div>
             <p class="mb-1">Estimate the average customer lifetime value metric by plunging the total customers along with the total orders:</p>
         </span>

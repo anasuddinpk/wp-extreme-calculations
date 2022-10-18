@@ -30,6 +30,9 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('cpm-calculator', array($this, 'returns_cpm_calculator'));
             add_shortcode('customer-retention', array($this, 'returns_cr_calculator'));
             add_shortcode('profit-margin', array($this, 'returns_pm_calculator'));
+            add_shortcode('ecommerce-traffic-calculator', array($this, 'returns_ecommerce_traffic_calculator'));
+            add_shortcode('business-loan-calculator', array($this, 'returns_business_loan_calculator'));
+            add_shortcode('discount-calculator', array($this, 'returns_discount_calculator'));
         }
 
         /**
@@ -135,6 +138,50 @@ if (!class_exists('WEC_Shortcodes')) {
             $pm_calculator = ob_get_clean();
 
             return $pm_calculator;
+        }
+
+        /**
+         * Returning the Ecommerce Traffic calculator HTML by Shortcode.
+         * 
+         * @return String $et_calculator Ecommerce Traffic Calc's HTML.
+         */
+        public function returns_ecommerce_traffic_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/ecommerce-traffic.php';
+            ob_start();
+            include $path;
+            $et_calculator = ob_get_clean();
+
+            return $et_calculator;
+        }
+
+        /**
+         * Returning the Business Loan calculator HTML by Shortcode.
+         * 
+         * @return String $bl_calculator Business Loan Calc's HTML.
+         */
+        public function returns_business_loan_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/business-loan.php';
+            ob_start();
+            include $path;
+            $bl_calculator = ob_get_clean();
+
+            return $bl_calculator;
+        }
+
+        /**
+         * Returning the Discount calculator HTML by Shortcode.
+         * 
+         * @return String $dc_calculator Business Loan Calc's HTML.
+         */
+        public function returns_discount_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/discount-calculator.php';
+            ob_start();
+            include $path;
+            $dc_calculator = ob_get_clean();
+            return $dc_calculator;
         }
     }
 

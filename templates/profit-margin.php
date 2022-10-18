@@ -11,8 +11,7 @@
                         <input type="number" class="form-control pm-calc-fields rounded-0" id="pmcustomerprice" placeholder="Price Customer Pays">
                         <label for="pmcustomerprice">Price Customers Pay</label>
                     </div>
-                    <span class="input-group-text">Selling price of your product?</span>
-
+                    <span class="input-group-text rounded-0">Selling price of your product?</span>
                 </div>
             </div>
 
@@ -73,7 +72,7 @@
 
     </div>
 
-    <div class="list-group pm-calc-results shadow-sm" style="display: none;">
+    <div class="list-group pm-calc-results container pe-0 shadow-sm" style="display: none;">
 
         <span class="list-group-item py-3 extreme-results-header" aria-current="true">
             <div class="d-flex w-100 justify-content-between">

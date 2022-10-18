@@ -83,7 +83,7 @@
 
     </div>
 
-    <div class="list-group shadow-sm">
+    <div class="list-group container pe-0 shadow-sm">
 
         <span class="list-group-item py-3 extreme-results-header" aria-current="true">
             <div class="d-flex w-100 justify-content-between">

@@ -35,7 +35,7 @@
 
     </div>
 
-    <div class="list-group sf-calc-results shadow-sm" style="display: none;">
+    <div class="list-group container pe-0 sf-calc-results shadow-sm" style="display: none;">
 
         <span class="list-group-item py-3 extreme-results-header" aria-current="true">
             <div class="d-flex w-100 justify-content-between">

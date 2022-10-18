@@ -70,6 +70,15 @@ if (!class_exists('WEC_Loader')) {
 
 			//Enqueuing Profit Margin Calculator jQuery.
 			wp_enqueue_script('pm-calculator', plugin_dir_url(__DIR__) . 'assets/js/pm-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Business Loan Calculator jQuery.
+			wp_enqueue_script('bl-calculator', plugin_dir_url(__DIR__) . 'assets/js/bl-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Ecommerce Traffic Calculator jQuery.
+			wp_enqueue_script('et-calculator', plugin_dir_url(__DIR__) . 'assets/js/et-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Discount Calculator jQuery.
+			wp_enqueue_script('dc-calculator', plugin_dir_url(__DIR__) . 'assets/js/dc-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 

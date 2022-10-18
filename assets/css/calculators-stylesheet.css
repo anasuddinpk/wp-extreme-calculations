@@ -33,9 +33,18 @@ span.calc-hr-headings {
   padding: 0 10px !important;
 }
 
-div.form-floating input.form-control:focus {
+div.form-floating select.form-select {
+  border-radius: 0px !important;
+}
+
+div.form-floating input.form-control:focus,
+div.form-floating select.form-select:focus {
   box-shadow: none !important;
   border: 1px solid #198754 !important;
+}
+
+span.extreme-results-header div h4 {
+  color: #fff;
 }
 
 @media only screen and (max-width: 450px) {
