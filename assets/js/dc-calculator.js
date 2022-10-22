@@ -105,5 +105,6 @@ jQuery(document).ready(
                 $('#dc_discountlabel').append('Discount Price ($)');
             }
         });
+        
     }
 );

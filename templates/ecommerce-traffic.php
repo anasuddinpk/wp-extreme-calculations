@@ -26,7 +26,6 @@
 
         </div>
 
-
         <div class="row mt-1 mt-lg-2 mb-3 mb-lg-4 g-2">
 
             <div class="col-md-6">

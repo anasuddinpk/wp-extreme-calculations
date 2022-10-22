@@ -88,7 +88,6 @@
         <span class="list-group-item py-3 extreme-results-header" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
                 <h4 class="mb-1">Ecommerce Conversion Results</h4>
-                <!-- <small class="px-3">Values</small> -->
             </div>
             <p class="mb-1">See how a lift in a specific site progression may affect your site’s conversions and revenue:</p>
         </span>

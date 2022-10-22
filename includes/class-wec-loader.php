@@ -79,6 +79,18 @@ if (!class_exists('WEC_Loader')) {
 
 			//Enqueuing Discount Calculator jQuery.
 			wp_enqueue_script('dc-calculator', plugin_dir_url(__DIR__) . 'assets/js/dc-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Reorder Point Calculator jQuery.
+			wp_enqueue_script('rp-calculator', plugin_dir_url(__DIR__) . 'assets/js/rp-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Economic Order Quantity Calculator jQuery.
+			wp_enqueue_script('eoq-calculator', plugin_dir_url(__DIR__) . 'assets/js/eoq-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Break Even Point Calculator jQuery.
+			wp_enqueue_script('bep-calculator', plugin_dir_url(__DIR__) . 'assets/js/bep-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Inventory Turnover Ratio Calculator jQuery.
+			wp_enqueue_script('itr-calculator', plugin_dir_url(__DIR__) . 'assets/js/itr-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 

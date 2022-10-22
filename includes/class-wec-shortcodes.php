@@ -33,6 +33,10 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('ecommerce-traffic-calculator', array($this, 'returns_ecommerce_traffic_calculator'));
             add_shortcode('business-loan-calculator', array($this, 'returns_business_loan_calculator'));
             add_shortcode('discount-calculator', array($this, 'returns_discount_calculator'));
+            add_shortcode('reorder-point-calculator', array($this, 'returns_reorder_point_calculator'));
+            add_shortcode('economic-order-quantity', array($this, 'returns_economic_order_quantity_calculator'));
+            add_shortcode('break-even-point', array($this, 'returns_break_even_point_calculator'));
+            add_shortcode('inventory-turnover-ratio', array($this, 'returns_inventory_turnover_ratio_calculator'));
         }
 
         /**
@@ -182,6 +186,62 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $dc_calculator = ob_get_clean();
             return $dc_calculator;
+        }
+
+        /**
+         * Returning the Reorder Point calculator HTML by Shortcode.
+         * 
+         * @return String $rp_calculator Business Loan Calc's HTML.
+         */
+        public function returns_reorder_point_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/reorder-point.php';
+            ob_start();
+            include $path;
+            $rp_calculator = ob_get_clean();
+            return $rp_calculator;
+        }
+
+        /**
+         * Returning the Economic Order Quantity calculator HTML by Shortcode.
+         * 
+         * @return String $eoq_calculator Economic Order Quantity Calc's HTML.
+         */
+        public function returns_economic_order_quantity_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/economic-order-quantity.php';
+            ob_start();
+            include $path;
+            $eoq_calculator = ob_get_clean();
+            return $eoq_calculator;
+        }
+
+        /**
+         * Returning the Break Even Point calculator HTML by Shortcode.
+         * 
+         * @return String $bep_calculator Break Even Point Calc's HTML.
+         */
+        public function returns_break_even_point_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/break-even-point.php';
+            ob_start();
+            include $path;
+            $bep_calculator = ob_get_clean();
+            return $bep_calculator;
+        }
+
+        /**
+         * Returning the Inventory Turnover Ratio calculator HTML by Shortcode.
+         * 
+         * @return String $itr_calculator Inventory Turnover Ratio Calc's HTML.
+         */
+        public function returns_inventory_turnover_ratio_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/inventory-turnover-ratio.php';
+            ob_start();
+            include $path;
+            $itr_calculator = ob_get_clean();
+            return $itr_calculator;
         }
     }
 

@@ -47,6 +47,14 @@ span.extreme-results-header div h4 {
   color: #fff;
 }
 
+.lftradioround{
+  border-radius: 20px 0 0 20px !important;
+}
+
+.rtradioround{
+  border-radius: 0 20px 20px 0 !important;
+}
+
 @media only screen and (max-width: 450px) {
   span.calc-hr-headings {
     font-size: 16px !important;

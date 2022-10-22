@@ -34,7 +34,6 @@
                         <label for="crtotalrevenue">Total Revenue Generated</label>
                     </div>
                     <span class="input-group-text rounded-0">$ $ $</span>
-
                 </div>
             </div>
 
