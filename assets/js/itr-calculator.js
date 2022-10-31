@@ -31,11 +31,13 @@ jQuery(document).ready(
         }
 
         //Enabling the Calculate button if all fields are filled.
-        $('.itr-calc-fields').change(function () {
-            if (itr_calc_fields_filled()) {
-                $('.calc-itr-calc').attr('disabled', false);
+        $('.itr-calc-fields').change(
+            function () {
+                if (itr_calc_fields_filled()) {
+                    $('.calc-itr-calc').attr('disabled', false);
+                }
             }
-        });
+        );
 
         //Inventory Turnover Ratio All Calculations.
         $('.calc-itr-calc').click(

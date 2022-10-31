@@ -39,13 +39,13 @@ if (!class_exists('WEC_Loader')) {
 		 */
 		public function enqueue_scripting_files()
 		{
-			// all styles
+			//All styles.
 			wp_enqueue_style('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css');
 			wp_enqueue_style('theme-style', get_stylesheet_directory_uri() . '/style.css');
 
-			// all scripts
+			//All scripts.
 			wp_enqueue_script('bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js', array('jquery'), wp_rand(), true);
-			//wp_enqueue_script( 'theme-script', get_template_directory_uri() . '/js/scripts.js', array('jquery'), wp_rand(), true );
+			wp_enqueue_script('fontawesome', 'https://kit.fontawesome.com/f0eaa3a434.js');
 
 			//Enqueuing custom Stylesheet.
 			wp_enqueue_style('calculators-stylesheet', plugin_dir_url(__DIR__) . 'assets/css/calculators-stylesheet.css');
@@ -91,6 +91,9 @@ if (!class_exists('WEC_Loader')) {
 
 			//Enqueuing Inventory Turnover Ratio Calculator jQuery.
 			wp_enqueue_script('itr-calculator', plugin_dir_url(__DIR__) . 'assets/js/itr-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing SKU Generator jQuery.
+			wp_enqueue_script('sku-generator', plugin_dir_url(__DIR__) . 'assets/js/sku-generator.js', array('jquery'), wp_rand());
 		}
 	}
 

@@ -37,6 +37,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('economic-order-quantity', array($this, 'returns_economic_order_quantity_calculator'));
             add_shortcode('break-even-point', array($this, 'returns_break_even_point_calculator'));
             add_shortcode('inventory-turnover-ratio', array($this, 'returns_inventory_turnover_ratio_calculator'));
+            add_shortcode('sku-generator', array($this, 'returns_sku_generator'));
         }
 
         /**
@@ -242,6 +243,20 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $itr_calculator = ob_get_clean();
             return $itr_calculator;
+        }
+
+        /**
+         * Returning the SKU-Generator HTML by Shortcode.
+         * 
+         * @return String $sku_generator SKU-Generator Calc's HTML.
+         */
+        public function returns_sku_generator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/sku-generator.php';
+            ob_start();
+            include $path;
+            $sku_generator = ob_get_clean();
+            return $sku_generator;
         }
     }
 
