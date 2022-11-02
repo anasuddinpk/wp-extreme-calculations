@@ -21,6 +21,48 @@ button.extreme-calc-button:hover {
   color: #fff !important;
 }
 
+.fa-question-circle-o {
+  font-size: 24px !important;
+  margin-top: 2px;
+  font-weight: 700 !important;
+  cursor: pointer;
+}
+
+.fa-question-circle-o:hover {
+  transition: 0.1s;
+  font-size: 23px !important;
+  margin-top: 3px;
+}
+
+.skug_btns {
+  background-color: #FF9100 !important;
+  border-color: #FF9100 !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+.skug_btns:hover {
+  background-color: #ff9100cb !important;
+  color: #fff !important;
+}
+
+.skug_btns2 {
+  background-color: #ffffff !important;
+  border-color: #FF9100 !important;
+  font-weight: 600 !important;
+  color: #FF9100 !important;
+}
+
+.skug_color_extra {
+  background-color: #FF9100 !important;
+  font-weight: 600 !important;
+}
+
+.skug_btns2:hover {
+  background-color: #FF9100 !important;
+  color: #ffffff !important;
+}
+
 span.calc-results-badge {
   letter-spacing: 1px !important;
   font-size: 1rem !important;
@@ -42,7 +84,7 @@ div.form-floating select.form-select:focus,
 div.sku-gen-fields div input:focus,
 div.sku-gen-fields div select:focus {
   box-shadow: none !important;
-  border: 1px solid #198754 !important;
+  border: 1px solid #FF9100 !important;
 }
 
 span.extreme-results-header div h4 {
@@ -57,17 +99,10 @@ span.extreme-results-header div h4 {
   border-radius: 0 20px 20px 0 !important;
 }
 
-/* select.form-control {
-  -moz-appearance: none !important;
-  -webkit-appearance: none !important;
-  appearance: none !important;
-} */
-
 .items_list_div {
   height: 25rem !important;
   font-size: 0.85rem !important;
   overflow-y: scroll;
-  /* box-shadow: rgba(0, 0, 0, 0.01) -5px 4px 4px 0px inset !important;  */
 }
 
 .fa-close:hover {

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
 
     <div class="row rounded mb-4 shadow-sm p-0">
 
@@ -15,7 +15,7 @@
 
             <div class="row mb-3 sku-gen-fields">
                 <div class="col">
-                    <select class="form-select form-select-sm charcount rounded-0">
+                    <select class="form-select form-select-sm charcount rounded-0" id="skug_charcount">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3" selected>3</option>
@@ -57,10 +57,10 @@
 
             <div class="row">
                 <div class="mb-2">
-                    <button type="button" class="btn btn-success w-100 rounded-0 btn-sm" id="skug_addbtn" disabled>Add</button>
+                    <button type="button" class="btn skug_btns w-100 rounded-0 btn-sm" id="skug_addbtn" disabled>Add</button>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-outline-success w-100 rounded-0 btn-sm" id="skug_addretainbtn" disabled>Add & Retain</button>
+                    <button type="button" class="btn skug_btns2 w-100 rounded-0 btn-sm" id="skug_addretainbtn" disabled>Add & Retain</button>
                 </div>
             </div>
 
@@ -71,16 +71,67 @@
             <div class="row mb-3">
                 <div class="col col-lg-3" style="font-size: 0.75rem ;">
 
-                    <span class="badge bg-success rounded-pill px-3 py-2" style="font-size: 0.75rem; font-weight: 400">Total Count: <span id="skug_totalcount"></span></span>
+                    <span class="badge skug_color_extra rounded-pill px-3 py-2" style="font-size: 0.75rem; font-weight: 400">Total Count: <span id="skug_totalcount"></span></span>
 
                 </div>
 
-                <div class="col col-lg-4"></div>
+
+                <div class="col-1 col-lg-1 ps-1">
+
+                    <i class="fa fa-question-circle-o text-secondary" aria-hidden="true" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content rounded-2">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">How to use our SKU Generator?</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body d-flex flex-column">
+
+                                    <div class="mb-2">
+                                        <img class="float-start me-2" src="https://raw.githubusercontent.com/anasuddinpk/mybootcamp_project/master/icons8-double-tick-50.png" width="35px">
+                                        <div>Select the SKU's character count, and Select the divider symbol.</div>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <img class="float-start me-2" src="https://raw.githubusercontent.com/anasuddinpk/mybootcamp_project/master/icons8-double-tick-50.png" width="35px">
+                                        <div>Type the item name and its properties like size, color, and weight.</div>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <img class="float-start me-2" src="https://raw.githubusercontent.com/anasuddinpk/mybootcamp_project/master/icons8-double-tick-50.png" width="35px">
+                                        <div>To generate SKU & delete the values, click the <b>Add</b> button.</div>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <img class="float-start me-2" src="https://raw.githubusercontent.com/anasuddinpk/mybootcamp_project/master/icons8-double-tick-50.png" width="35px">
+                                        <div>Click <b>Add & Retain</b> to hold the values and generate SKU.</div>
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <img class="float-start me-2" src="https://raw.githubusercontent.com/anasuddinpk/mybootcamp_project/master/icons8-double-tick-50.png" width="35px">
+                                        <div>Export the generated SKU list as <b>CSV</b> file, select Export as CSV.</div>
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn rounded-0 skug_btns" data-bs-dismiss="modal">Alright</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col col-lg-3"></div>
 
                 <div class="col col-lg-5 d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-success rounded-0 btn-sm" id="skug_reset">Reset</button>
-                    <button type="button" class="btn btn-success rounded-0 btn-sm ms-2">Export CSV</button>
+                    <button type="button" class="btn skug_btns2 rounded-0 btn-sm" id="skug_reset">Reset</button>
+                    <button type="button" class="btn skug_btns rounded-0 btn-sm ms-2" id="skug_exportcsv">Export CSV</button>
                 </div>
+
             </div>
 
             <div class="row px-2">
@@ -109,180 +160,7 @@
 
             </div>
 
-
-            <div class="items_list_div pe-3">
-
-                <!-- <div class="row">
-                    <div class="col col-11 pe-0">
-                        <div class="row py-2">
-                            <div class="col col-3 overflow-hidden">
-                                Item xxx
-                            </div>
-                            <div class="col col-2 overflow-hidden">
-                                Attr # 1
-                            </div>
-                            <div class="col col-2 overflow-hidden">
-                                Attr # 2
-                            </div>
-                            <div class="col col-2 overflow-hidden">
-                                Attr # 3
-                            </div>
-                            <div class="col col-3 overflow-hidden">
-                                hib/bhj/bhg/b
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-1 pe-1">
-                        <span style="float: right; font-size: 12px; padding-top:8px;">
-                            <i class="fas fa-close text-danger"></i>
-                        </span>
-                    </div>
-                </div> -->
-
-            </div>
-
-
-            <!-- <div class="row px-3">
-                <table class="table" style="font-size: 0.75rem;">
-                    <thead>
-                        <tr>
-                            <th scope="col">Item Name</th>
-                            <th scope="col">Attr 1</th>
-                            <th scope="col">Attr 2</th>
-                            <th scope="col">Attr 3</th>
-                            <th scope="col">Generated SKU</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody class="items_list_div">
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-                        <tr style="background-color: white;">
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div> -->
-
-            <!-- <div class="row">
-
-            </div> -->
+            <div class="items_list_div pe-3"></div>
 
         </div>
 
