@@ -84,6 +84,12 @@ div.form-floating select.form-select:focus,
 div.sku-gen-fields div input:focus,
 div.sku-gen-fields div select:focus {
   box-shadow: none !important;
+  border: 1px solid #198754 !important;
+}
+
+div.sku-gen-fields div input:focus,
+div.sku-gen-fields div select:focus {
+  box-shadow: none !important;
   border: 1px solid #FF9100 !important;
 }
 
@@ -109,6 +115,45 @@ span.extreme-results-header div h4 {
   cursor: pointer !important;
   transition: 0.3s;
   color: rgba(255, 0, 0, 0.6) !important;
+}
+
+.skrill-radio-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 6px;
+}
+
+.skrill-radio-item input[type='radio'] {
+  display: none;
+}
+
+.skrill-radio-item label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  top: 3px;
+  margin: 0 5px 0 0;
+  width: 17px;
+  height: 17px;
+  border-radius: 11px;
+  border: 1px solid #198754;
+  background-color: transparent;
+}
+
+.skrill-radio-item input[type=radio]:checked+label:after {
+  border-radius: 11px;
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  top: 7px;
+  left: 9px;
+  content: " ";
+  display: block;
+  background: #198754;
+}
+
+.skrill-radio-item label {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 450px) {

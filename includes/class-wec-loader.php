@@ -94,6 +94,9 @@ if (!class_exists('WEC_Loader')) {
 
 			//Enqueuing SKU Generator jQuery.
 			wp_enqueue_script('sku-generator', plugin_dir_url(__DIR__) . 'assets/js/sku-generator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Skrill Fee Calculator jQuery.
+			wp_enqueue_script('skrill-calculator', plugin_dir_url(__DIR__) . 'assets/js/skrill-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 

@@ -38,6 +38,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('break-even-point', array($this, 'returns_break_even_point_calculator'));
             add_shortcode('inventory-turnover-ratio', array($this, 'returns_inventory_turnover_ratio_calculator'));
             add_shortcode('sku-generator', array($this, 'returns_sku_generator'));
+            add_shortcode('skrill-fee-calculator', array($this, 'returns_skrill_fee_calculator'));
         }
 
         /**
@@ -107,7 +108,7 @@ if (!class_exists('WEC_Shortcodes')) {
          */
         public function returns_cpm_calculator()
         {
-            $path = plugin_dir_path(__DIR__) . 'templates/cpm_calculator.php';
+            $path = plugin_dir_path(__DIR__) . 'templates/cpm-calculator.php';
             ob_start();
             include $path;
             $cpm_calculator = ob_get_clean();
@@ -248,7 +249,7 @@ if (!class_exists('WEC_Shortcodes')) {
         /**
          * Returning the SKU-Generator HTML by Shortcode.
          * 
-         * @return String $sku_generator SKU-Generator Calc's HTML.
+         * @return String $sku_generator SKU-Generator HTML.
          */
         public function returns_sku_generator()
         {
@@ -257,6 +258,20 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $sku_generator = ob_get_clean();
             return $sku_generator;
+        }
+
+        /**
+         * Returning the Skrill Fee Calculator HTML by Shortcode.
+         * 
+         * @return String $skrill_fee_calc Skrill Fee Calc's HTML.
+         */
+        public function returns_skrill_fee_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/skrill-fee.php';
+            ob_start();
+            include $path;
+            $skrill_fee_calc = ob_get_clean();
+            return $skrill_fee_calc;
         }
     }
 
