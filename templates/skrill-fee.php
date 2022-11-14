@@ -6,7 +6,7 @@
 
             <div class="col">
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-2">
                     <div class="form-floating">
                         <input type="number" class="form-control skrill-calc-fields rounded-0" id="skrill_invoiceamount" value="50" placeholder="Invoice Amount" onchange="byInvoiceChange()">
                         <label for="pmcustomerprice">Invoice Amount</label>

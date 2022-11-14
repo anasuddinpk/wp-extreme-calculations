@@ -39,6 +39,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('inventory-turnover-ratio', array($this, 'returns_inventory_turnover_ratio_calculator'));
             add_shortcode('sku-generator', array($this, 'returns_sku_generator'));
             add_shortcode('skrill-fee-calculator', array($this, 'returns_skrill_fee_calculator'));
+            add_shortcode('bigcommerce-pricing', array($this, 'returns_bigcommerce_pricing_calculator'));
         }
 
         /**
@@ -272,6 +273,20 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $skrill_fee_calc = ob_get_clean();
             return $skrill_fee_calc;
+        }
+
+        /**
+         * Returning the BigCommerce Pricing Calculator HTML by Shortcode.
+         * 
+         * @return String $bc_pricing BigCommerce Pricing Calc's HTML.
+         */
+        public function returns_bigcommerce_pricing_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/bigcommerce-pricing.php';
+            ob_start();
+            include $path;
+            $bc_pricing = ob_get_clean();
+            return $bc_pricing;
         }
     }
 

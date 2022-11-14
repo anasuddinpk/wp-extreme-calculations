@@ -117,17 +117,20 @@ span.extreme-results-header div h4 {
   color: rgba(255, 0, 0, 0.6) !important;
 }
 
-.skrill-radio-item {
+.skrill-radio-item,
+.bc-radio-item {
   display: inline-block;
   position: relative;
   padding: 0 6px;
 }
 
-.skrill-radio-item input[type='radio'] {
+.skrill-radio-item input[type='radio'],
+.bc-radio-item input[type='radio'] {
   display: none;
 }
 
-.skrill-radio-item label:before {
+.skrill-radio-item label:before,
+.bc-radio-item label:before {
   content: " ";
   display: inline-block;
   position: relative;
@@ -140,7 +143,8 @@ span.extreme-results-header div h4 {
   background-color: transparent;
 }
 
-.skrill-radio-item input[type=radio]:checked+label:after {
+.skrill-radio-item input[type=radio]:checked+label:after,
+.bc-radio-item input[type=radio]:checked+label:after {
   border-radius: 11px;
   width: 11px;
   height: 11px;
@@ -152,8 +156,29 @@ span.extreme-results-header div h4 {
   background: #198754;
 }
 
-.skrill-radio-item label {
+.skrill-radio-item label,
+.bc-radio-item label {
   cursor: pointer;
+}
+
+.fa-check{
+  color: #198754 !important;
+  font-size: 1.35rem !important;
+}
+
+td i.fa-times{
+  color: rgb(184, 0, 0) !important;
+  font-size: 1.35rem !important;
+}
+
+.wec-fs-lh{
+  font-size: 0.75rem !important;
+  display: block;
+  line-height: 15px !important;
+}
+
+.wec-fs-s2{
+  font-size: 0.85rem !important;
 }
 
 @media only screen and (max-width: 450px) {

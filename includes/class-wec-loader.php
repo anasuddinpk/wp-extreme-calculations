@@ -97,6 +97,9 @@ if (!class_exists('WEC_Loader')) {
 
 			//Enqueuing Skrill Fee Calculator jQuery.
 			wp_enqueue_script('skrill-calculator', plugin_dir_url(__DIR__) . 'assets/js/skrill-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing BigCommerce Pricing Calculator jQuery.
+			wp_enqueue_script('bc-pricing-calculator', plugin_dir_url(__DIR__) . 'assets/js/bc-pricing-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 
