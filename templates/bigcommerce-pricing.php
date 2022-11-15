@@ -9,7 +9,7 @@
                 <div class="input-group">
                     <div class="form-floating">
                         <input type="number" class="form-control rounded-0" id="bc_price_revenue" placeholder="What is your Monthly Revenue (USD)?" value="1500">
-                        <label for="totaltraffic">What is your Monthly Revenue (USD)?</label>
+                        <label for="bc_price_revenue">What is your Monthly Revenue (USD)?</label>
                     </div>
                     <span class="input-group-text rounded-0">$ $ $</span>
                 </div>
@@ -25,14 +25,14 @@
             <div class="col-md-6 ">
 
                 <div class="form-check bc-radio-item mb-2">
-                    <input class="form-check-input" type="radio" name="credit_card_method" id="credit_card_method_1" value="" checked>
+                    <input class="form-check-input" type="radio" name="credit_card_method" id="credit_card_method_1" value="method_1" checked>
                     <label class="form-check-label" for="credit_card_method_1">
                         Paypal & Braintree
                     </label>
                 </div>
 
                 <div class="form-check bc-radio-item">
-                    <input class="form-check-input" type="radio" name="credit_card_method" id="credit_card_method_2" value="">
+                    <input class="form-check-input" type="radio" name="credit_card_method" id="credit_card_method_2" value="method_2">
                     <label class="form-check-label" for="credit_card_method_2">
                         Alternative Payment Gateway
                     </label>
@@ -40,24 +40,24 @@
 
             </div>
 
-            <div class="col-md-6">
+            <div class="col-1"></div>
+
+            <div class="col-md-5">
 
                 <div class="row pt-2 pt-lg-3">
 
-                    <div class="col-4 px-3 px-lg-4">
-                        <input class="form-control form-control-md rounded-0" id="bc_payment_percent" type="text" value="2.9" disabled>
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control form-control-sm rounded-0" id="bc_payment_percent" type="number" value="2.9" disabled>
+                            <span class="input-group-text rounded-0">%</span>
+                        </div>
                     </div>
 
-                    <div class="col-2 fw-semibold fs-4 ps-0">
-                        %
-                    </div>
-
-                    <div class="col-4 px-3 px-lg-4">
-                        <input class="form-control form-control-md rounded-0" type="text" id="bc_payment_cents" value="0.3" disabled>
-                    </div>
-
-                    <div class="col-2 fw-semibold fs-4 ps-0">
-                        ¢
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input class="form-control form-control-sm rounded-0" type="number" id="bc_payment_cents" value="0.3" disabled>
+                            <span class="input-group-text rounded-0">¢</span>
+                        </div>
                     </div>
 
                 </div>
@@ -75,14 +75,14 @@
             <div class="col">
 
                 <div class="form-check bc-radio-item mb-2">
-                    <input class="form-check-input" type="radio" name="bc_billing_method" id="bc_billing_method_1" checked>
+                    <input class="form-check-input" type="radio" name="bc_billing_method" id="bc_billing_method_1" value="monthly" checked>
                     <label class="form-check-label" for="bc_billing_method_1">
                         Monthly
                     </label>
                 </div>
 
                 <div class="form-check bc-radio-item">
-                    <input class="form-check-input" type="radio" name="bc_billing_method" id="bc_billing_method_2">
+                    <input class="form-check-input" type="radio" name="bc_billing_method" id="bc_billing_method_2" value="annually">
                     <label class="form-check-label" for="bc_billing_method_2">
                         Annually
                     </label>
@@ -97,9 +97,9 @@
 
         <span class="list-group-item py-3 extreme-results-header" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
-                <h4 class="mb-1">Business Loan Calculator Outcomes</h4>
+                <h4 class="mb-1">BigCommerce Pricing Fee Outcomes</h4>
             </div>
-            <p class="mb-1">A useful and simple tool to evaluate your business loan with interests:</p>
+            <p class="mb-1">There are a series of plans to choose from, ranging from $29.95 per month to $299.95 per month. The more you pay, the more options you’ll have when it comes to thinks like sales thresholds:</p>
         </span>
 
         <ul class="list-group rounded-0 rounded-bottom mx-0">
@@ -113,7 +113,7 @@
                         When using special PayPal powered by Braintree pricing, we presumptively process credit/debit cards for just 50% of transactions. For all plans, the rates for PayPal non-credit/debit card transactions are <span class="text-success fw-bolder">2.9% plus 0.3¢</span> per transaction.
                     </caption>
 
-                    <thead class="w-100">
+                    <thead class="w-100" id="bc_outcomes_firstrow">
                         <th style="width: 20%;">
 
                         </th>
@@ -137,16 +137,16 @@
                                 <span class="fw-bold wec-fs-s2">Total Price</span>
                             </td>
                             <td class="text-center align-middle">
-                                <sup>$</sup><span class="fw-bold">29.95</span>
+                                <sup>$</sup><span class="fw-bold" id="bc_standard_total">73.45</span>
                             </td>
                             <td class="text-center align-middle">
-                                <sup>$</sup><span class="fw-bold">79.95</span>
+                                <sup>$</sup><span class="fw-bold" id="bc_plus_total">117.45</span>
                             </td>
                             <td class="text-center align-middle">
-                                <sup>$</sup><span class="fw-bold">299.95</span>
+                                <sup>$</sup><span class="fw-bold" id="bc_pro_total">332.95</span>
                             </td>
                             <td class="text-center align-middle">
-                                <sup>$</sup><span class="fw-bold">2000.00</span>
+                                <sup>$</sup><span class="fw-bold" id="bc_enterprise_total">2033.00</span>
                             </td>
                         </tr>
 
@@ -185,19 +185,19 @@
                                 <span class="wec-fs-lh">10% Discount for Annual Plans</span>
                             </td>
                             <td class="text-center align-middle">
-                                <sup>$</sup><span class="fw-bold">0.03</span><br>
+                                <sup>$</sup><span class="fw-bold" id="bc_standard_paypal">43.50</span><br>
+                                <span class="wec-fs-lh">2.9% + 0.3¢ per Card Transaction</span>
+                            </td>
+                            <td class="text-center align-middle">
+                                <sup>$</sup><span class="fw-bold" id="bc_plus_paypal">37.50</span>
                                 <span class="wec-fs-lh">2.5% + 0.3¢ per Card Transaction</span>
                             </td>
                             <td class="text-center align-middle">
-                                <sup>$</sup><span class="fw-bold">0.03</span>
+                                <sup>$</sup><span class="fw-bold" id="bc_pro_paypal">33.00</span>
                                 <span class="wec-fs-lh">2.5% + 0.3¢ per Card Transaction</span>
                             </td>
                             <td class="text-center align-middle">
-                                <sup>$</sup><span class="fw-bold">0.03</span>
-                                <span class="wec-fs-lh">2.5% + 0.3¢ per Card Transaction</span>
-                            </td>
-                            <td class="text-center align-middle">
-                                <sup>$</sup><span class="fw-bold">0.06</span>
+                                <sup>$</sup><span class="fw-bold" id="bc_enterprise_paypal">33.00</span>
                                 <span class="wec-fs-lh">2.5% + 0.3¢ per Card Transaction</span>
                             </td>
                         </tr>
@@ -518,7 +518,7 @@
                             </td>
                         </tr>
 
-                        <tr>
+                        <tr id="bc_outcomes_lastrow">
                             <td>
                                 <span class="fw-bold wec-fs-s2">Online Sales</span><br>
                                 <span class="wec-fs-lh">Calculated on a trailing 12-Month basis</span>
