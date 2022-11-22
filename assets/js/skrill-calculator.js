@@ -64,7 +64,6 @@ jQuery(document).ready(
                     //Calculating values.
                     invoiceAmount = $('#skrill_invoiceamount').val();
                     let transferOption = 'skrill_transfer_1';
-                    console.log(transferOption)
                     switch (transferOption) {
                         case 'skrill_transfer_1':
                             feeCalculated = (invoiceAmount - 10.5) * 0.02910;

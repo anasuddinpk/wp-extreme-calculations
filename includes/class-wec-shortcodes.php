@@ -40,6 +40,8 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('sku-generator', array($this, 'returns_sku_generator'));
             add_shortcode('skrill-fee-calculator', array($this, 'returns_skrill_fee_calculator'));
             add_shortcode('bigcommerce-pricing', array($this, 'returns_bigcommerce_pricing_calculator'));
+            add_shortcode('shopify-pricing', array($this, 'returns_shopify_pricing_calculator'));
+            add_shortcode('square-fee', array($this, 'returns_square_fee_calculator'));
         }
 
         /**
@@ -287,6 +289,34 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $bc_pricing = ob_get_clean();
             return $bc_pricing;
+        }
+
+        /**
+         * Returning the Shopify Pricing Calculator HTML by Shortcode.
+         * 
+         * @return String $shopify_pricing BigCommerce Pricing Calc's HTML.
+         */
+        public function returns_shopify_pricing_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/shopify-pricing.php';
+            ob_start();
+            include $path;
+            $shopify_pricing = ob_get_clean();
+            return $shopify_pricing;
+        }
+
+        /**
+         * Returning the Square Fee Calculator HTML by Shortcode.
+         * 
+         * @return String $square_fee Square Fee Calc's HTML.
+         */
+        public function returns_square_fee_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/square-fee.php';
+            ob_start();
+            include $path;
+            $square_fee = ob_get_clean();
+            return $square_fee;
         }
     }
 

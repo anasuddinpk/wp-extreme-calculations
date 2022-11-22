@@ -52,8 +52,6 @@ jQuery(document).ready(
                 $('.crcalc2').html(Number.parseFloat($('#crordernumber').val() / $('#crcustomernumber').val()).toFixed(2));
                 $('.crcalc3').html('$' + (Math.round(($('#crtotalrevenue').val() / $('#crcustomernumber').val()) * 2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 
-                console.log('testing cr calculations')
-
             }
         );
 

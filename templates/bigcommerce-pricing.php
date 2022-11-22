@@ -8,7 +8,8 @@
 
                 <div class="input-group">
                     <div class="form-floating">
-                        <input type="number" class="form-control rounded-0" id="bc_price_revenue" placeholder="What is your Monthly Revenue (USD)?" value="1500">
+                        <input type="number" class="form-control rounded-0" id="bc_price_revenue"
+                            placeholder="What is your Monthly Revenue (USD)?" value="1500">
                         <label for="bc_price_revenue">What is your Monthly Revenue (USD)?</label>
                     </div>
                     <span class="input-group-text rounded-0">$ $ $</span>
@@ -25,14 +26,16 @@
             <div class="col-md-6 ">
 
                 <div class="form-check bc-radio-item mb-2">
-                    <input class="form-check-input" type="radio" name="credit_card_method" id="credit_card_method_1" value="method_1" checked>
+                    <input class="form-check-input" type="radio" name="credit_card_method" id="credit_card_method_1"
+                        value="method_1" checked>
                     <label class="form-check-label" for="credit_card_method_1">
                         Paypal & Braintree
                     </label>
                 </div>
 
                 <div class="form-check bc-radio-item">
-                    <input class="form-check-input" type="radio" name="credit_card_method" id="credit_card_method_2" value="method_2">
+                    <input class="form-check-input" type="radio" name="credit_card_method" id="credit_card_method_2"
+                        value="method_2">
                     <label class="form-check-label" for="credit_card_method_2">
                         Alternative Payment Gateway
                     </label>
@@ -48,14 +51,16 @@
 
                     <div class="col-6">
                         <div class="input-group">
-                            <input class="form-control form-control-sm rounded-0" id="bc_payment_percent" type="number" value="2.9" disabled>
+                            <input class="form-control form-control-sm rounded-0" id="bc_payment_percent" type="number"
+                                value="2.9" disabled>
                             <span class="input-group-text rounded-0">%</span>
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="input-group">
-                            <input class="form-control form-control-sm rounded-0" type="number" id="bc_payment_cents" value="0.3" disabled>
+                            <input class="form-control form-control-sm rounded-0" type="number" id="bc_payment_cents"
+                                value="0.3" disabled>
                             <span class="input-group-text rounded-0">¢</span>
                         </div>
                     </div>
@@ -75,14 +80,16 @@
             <div class="col">
 
                 <div class="form-check bc-radio-item mb-2">
-                    <input class="form-check-input" type="radio" name="bc_billing_method" id="bc_billing_method_1" value="monthly" checked>
+                    <input class="form-check-input" type="radio" name="bc_billing_method" id="bc_billing_method_1"
+                        value="monthly" checked>
                     <label class="form-check-label" for="bc_billing_method_1">
                         Monthly
                     </label>
                 </div>
 
                 <div class="form-check bc-radio-item">
-                    <input class="form-check-input" type="radio" name="bc_billing_method" id="bc_billing_method_2" value="annually">
+                    <input class="form-check-input" type="radio" name="bc_billing_method" id="bc_billing_method_2"
+                        value="annually">
                     <label class="form-check-label" for="bc_billing_method_2">
                         Annually
                     </label>
@@ -99,18 +106,22 @@
             <div class="d-flex w-100 justify-content-between">
                 <h4 class="mb-1">BigCommerce Pricing Fee Outcomes</h4>
             </div>
-            <p class="mb-1">There are a series of plans to choose from, ranging from $29.95 per month to $299.95 per month. The more you pay, the more options you’ll have when it comes to thinks like sales thresholds:</p>
+            <p class="mb-1">There are a series of plans to choose from, ranging from $29.95 per month to $299.95 per
+                month. The more you pay, the more options you’ll have when it comes to thinks like sales thresholds:</p>
         </span>
 
         <ul class="list-group rounded-0 rounded-bottom mx-0">
 
-            <li class="list-group-item d-flex justify-content-between align-items-center pt-3" style="overflow-x: scroll ;">
+            <li class="list-group-item d-flex justify-content-between align-items-center pt-3"
+                style="overflow-x: scroll ;">
 
-                <table class="table table-bordered wec-fs-s2">
+                <table class="table bc-table table-bordered wec-fs-s2">
 
                     <caption class="text-dark mt-1" style="font-size: 0.85rem;">
                         <span style="color:red">*</span> We assume the average order value to be $50<br><br>
-                        When using special PayPal powered by Braintree pricing, we presumptively process credit/debit cards for just 50% of transactions. For all plans, the rates for PayPal non-credit/debit card transactions are <span class="text-success fw-bolder">2.9% plus 0.3¢</span> per transaction.
+                        When using special PayPal powered by Braintree pricing, we presumptively process credit/debit
+                        cards for just 50% of transactions. For all plans, the rates for PayPal non-credit/debit card
+                        transactions are <span class="text-success fw-bolder">2.9% plus 0.3¢</span> per transaction.
                     </caption>
 
                     <thead class="w-100" id="bc_outcomes_firstrow">
@@ -518,7 +529,7 @@
                             </td>
                         </tr>
 
-                        <tr id="bc_outcomes_lastrow">
+                        <tr>
                             <td>
                                 <span class="fw-bold wec-fs-s2">Online Sales</span><br>
                                 <span class="wec-fs-lh">Calculated on a trailing 12-Month basis</span>
@@ -537,6 +548,26 @@
                             </td>
                             <td class="text-center align-middle">
                                 <span>Custom</span>
+                            </td>
+                        </tr>
+
+                        <tr id="bc_outcomes_lastrow">
+                            <td></td>
+                            <td class="text-center align-middle">
+                                <a href="https://ecombusinesshub.com/go/bigcommerce"
+                                    class="btn btn-success text-light rounded-5 py-1 px-3 bc_trynow">Try Now</a>
+                            </td>
+                            <td class="text-center align-middle">
+                                <a href="https://ecombusinesshub.com/go/bigcommerce"
+                                    class="btn btn-success text-light rounded-5 py-1 px-3 bc_trynow">Try Now</a>
+                            </td>
+                            <td class="text-center align-middle">
+                                <a href="https://ecombusinesshub.com/go/bigcommerce"
+                                    class="btn btn-success text-light rounded-5 py-1 px-3 bc_trynow">Try Now</a>
+                            </td>
+                            <td class="text-center align-middle">
+                                <a href="https://ecombusinesshub.com/go/bigcommerce"
+                                    class="btn btn-success text-light rounded-5 py-1 px-3 bc_trynow">Try Now</a>
                             </td>
                         </tr>
 

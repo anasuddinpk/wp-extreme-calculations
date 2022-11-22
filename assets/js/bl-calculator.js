@@ -114,7 +114,6 @@ function calculate() {
         if (p == 0) {
             A = (P * Math.pow((1 + r / n), (n * t)));
             totalPayment = A;
-            console.log({ r, n, nper, A });
         }
         else {
             A = (P * Math.pow((1 + rate), nper)) / ((Math.pow((1 + rate), nper) - 1) / rate);

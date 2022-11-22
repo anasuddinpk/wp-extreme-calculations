@@ -100,6 +100,12 @@ if (!class_exists('WEC_Loader')) {
 
 			//Enqueuing BigCommerce Pricing Calculator jQuery.
 			wp_enqueue_script('bc-pricing-calculator', plugin_dir_url(__DIR__) . 'assets/js/bc-pricing-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Shopify Pricing Calculator jQuery.
+			wp_enqueue_script('shopify-pricing-calculator', plugin_dir_url(__DIR__) . 'assets/js/shopify-pricing-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing Square Fee Calculator jQuery.
+			wp_enqueue_script('square-fee-calculator', plugin_dir_url(__DIR__) . 'assets/js/square-fee-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 

@@ -1,5 +1,5 @@
 /**
- * Script for BigCommerce Pricing Calculator.
+ * Script for Shopify Pricing Calculator.
  *
  * @package wp-extreme-calculations
  */
@@ -8,31 +8,31 @@ jQuery(document).ready(
 
     function ($) {
 
-        //Applying borders on results' columns on revenue change.
-        $('table.bc-table').find('tr td:nth-child(2)').css({ 'border-inline': '2px solid #198754' });
-        $('tr#bc_outcomes_lastrow td:nth-child(2)').css({ 'border-bottom': '2px solid #198754' });
-        $('thead#bc_outcomes_firstrow th:nth-child(2)').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
-        $.fn.applyingColumnBorders = function (columnNum) {
+        // //Applying borders on results' columns on revenue change.
+        // $('table.bc-table').find('tr td:nth-child(2)').css({ 'border-inline': '2px solid #198754' });
+        // $('tr#bc_outcomes_lastrow td:nth-child(2)').css({ 'border-bottom': '2px solid #198754' });
+        // $('thead#bc_outcomes_firstrow th:nth-child(2)').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
+        // $.fn.applyingColumnBorders = function (columnNum) {
 
-            $('table.bc-table').find('tr td*').css({ 'border': '1px solid #dee2e6' });
-            $('tr#bc_outcomes_lastrow td*').css({ 'border': '1px solid #dee2e6' });
-            $('thead#bc_outcomes_firstrow th*').css({ 'border': '1px solid #dee2e6' });
+        //     $('table.bc-table').find('tr td*').css({ 'border': '1px solid #dee2e6' });
+        //     $('tr#bc_outcomes_lastrow td*').css({ 'border': '1px solid #dee2e6' });
+        //     $('thead#bc_outcomes_firstrow th*').css({ 'border': '1px solid #dee2e6' });
 
-            $('table.bc-table').find('tr td:nth-child(' + columnNum + ')').css({ 'border-inline': '2px solid #198754' });
-            $('tr#bc_outcomes_lastrow td:nth-child(' + columnNum + ')').css({ 'border-bottom': '2px solid #198754' });
-            $('thead#bc_outcomes_firstrow th:nth-child(' + columnNum + ')').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
-        }
+        //     $('table.bc-table').find('tr td:nth-child(' + columnNum + ')').css({ 'border-inline': '2px solid #198754' });
+        //     $('tr#bc_outcomes_lastrow td:nth-child(' + columnNum + ')').css({ 'border-bottom': '2px solid #198754' });
+        //     $('thead#bc_outcomes_firstrow th:nth-child(' + columnNum + ')').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
+        // }
 
         //Credit card method (fee) change.
-        $('input[type=radio][name="credit_card_method"]').change(
+        $('input[type=radio][name="shopify_card_method"]').change(
             function () {
-                if (this.value == 'method_2') {
-                    $('#bc_payment_percent').prop('disabled', false)
-                    $('#bc_payment_cents').prop('disabled', false)
+                if (this.value == 'external_payment') {
+                    $('#shopify_external_percent').prop('disabled', false)
+                    $('#shopify_external_cents').prop('disabled', false)
                 }
                 else {
-                    $('#bc_payment_percent').prop('disabled', true)
-                    $('#bc_payment_cents').prop('disabled', true)
+                    $('#shopify_external_percent').prop('disabled', true)
+                    $('#shopify_external_cents').prop('disabled', true)
                 }
             }
         );
@@ -149,4 +149,5 @@ jQuery(document).ready(
         }
 
     }
+
 );
