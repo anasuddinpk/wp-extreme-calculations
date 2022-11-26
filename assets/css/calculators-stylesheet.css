@@ -83,6 +83,13 @@ div.form-floating input.form-control:focus,
 div.form-floating select.form-select:focus,
 div.sku-gen-fields div input:focus,
 div.sku-gen-fields div select:focus,
+input[type="radio"][name="shopify_billing_method"]:focus,
+input[type="radio"][name="shopify_card_method"]:focus,
+input[type="radio"][name="credit_card_method"]:focus,
+input[type="radio"][name="bc_billing_method"]:focus,
+input[type="radio"][name="skrill_method"]:focus,
+input[type="radio"][name="skrill_transfer_option"]:focus,
+input[type="radio"][name="skrill_skrill_option"]:focus,
 div.input-group input.form-control:focus,
 select#shopify_currency:focus input[type="radio"]:active {
   box-shadow: none !important;
@@ -119,48 +126,11 @@ span.extreme-results-header div h4 {
   color: rgba(255, 0, 0, 0.6) !important;
 }
 
-.skrill-radio-item,
-.bc-radio-item {
-  display: inline-block;
-  position: relative;
-  padding: 0 6px;
-}
-
-.skrill-radio-item input[type='radio'],
-.bc-radio-item input[type='radio'] {
-  display: none;
-}
-
-.skrill-radio-item label:before,
-.bc-radio-item label:before {
-  content: " ";
-  display: inline-block;
-  position: relative;
-  top: 3px;
-  margin: 0 5px 0 0;
-  width: 17px;
-  height: 17px;
-  border-radius: 11px;
-  border: 1px solid #198754;
-  background-color: transparent;
-}
-
-.skrill-radio-item input[type=radio]:checked+label:after,
-.bc-radio-item input[type=radio]:checked+label:after {
-  border-radius: 11px;
-  width: 11px;
-  height: 11px;
-  position: absolute;
-  top: 7px;
-  left: 9px;
-  content: " ";
-  display: block;
-  background: #198754;
-}
-
-.skrill-radio-item label,
-.bc-radio-item label {
-  cursor: pointer;
+.skrill-radio-item input[type=radio]:checked,
+.bc-radio-item input[type=radio]:checked,
+.shopify-radio-item input[type=radio]:checked {
+  border-color: #198754 !important;
+  background: #198754 !important;
 }
 
 .fa-check {
@@ -180,7 +150,8 @@ td i.fa-times {
 }
 
 .wec-fs-s2,
-td a.bc_trynow {
+td a.bc_trynow,
+td a.shopify_trynow {
   font-size: 0.85rem !important;
 }
 

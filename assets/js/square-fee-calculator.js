@@ -8,8 +8,6 @@ jQuery(document).ready(
 
     function ($) {
 
-        console.log('sqaure')
-
         //Resetting the Square Fee Calc form entries on Reset.
         $('.reset-square-calc').click(
             function () {

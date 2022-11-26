@@ -8,20 +8,39 @@ jQuery(document).ready(
 
     function ($) {
 
-        // //Applying borders on results' columns on revenue change.
-        // $('table.bc-table').find('tr td:nth-child(2)').css({ 'border-inline': '2px solid #198754' });
-        // $('tr#bc_outcomes_lastrow td:nth-child(2)').css({ 'border-bottom': '2px solid #198754' });
-        // $('thead#bc_outcomes_firstrow th:nth-child(2)').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
-        // $.fn.applyingColumnBorders = function (columnNum) {
+        //Applying borders on results' columns on revenue change.
+        $('table.wec-shopify-table').find('tr td:nth-child(2)').css({ 'border-inline': '2px solid #198754' });
+        $('tr#shopify_outcomes_lastrow td:nth-child(2)').css({ 'border-bottom': '2px solid #198754' });
+        $('thead#shopify_outcomes_firstrow th:nth-child(2)').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
+        $.fn.applyingColumnBorders = function (columnNum) {
 
-        //     $('table.bc-table').find('tr td*').css({ 'border': '1px solid #dee2e6' });
-        //     $('tr#bc_outcomes_lastrow td*').css({ 'border': '1px solid #dee2e6' });
-        //     $('thead#bc_outcomes_firstrow th*').css({ 'border': '1px solid #dee2e6' });
+            $('table.wec-shopify-table').find('tr td*').css({ 'border': '1px solid #dee2e6' });
+            $('tr#shopify_outcomes_lastrow td*').css({ 'border': '1px solid #dee2e6' });
+            $('thead#shopify_outcomes_firstrow th*').css({ 'border': '1px solid #dee2e6' });
 
-        //     $('table.bc-table').find('tr td:nth-child(' + columnNum + ')').css({ 'border-inline': '2px solid #198754' });
-        //     $('tr#bc_outcomes_lastrow td:nth-child(' + columnNum + ')').css({ 'border-bottom': '2px solid #198754' });
-        //     $('thead#bc_outcomes_firstrow th:nth-child(' + columnNum + ')').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
-        // }
+            $('table.wec-shopify-table').find('tr td:nth-child(' + columnNum + ')').css({ 'border-inline': '2px solid #198754' });
+            $('tr#shopify_outcomes_lastrow td:nth-child(' + columnNum + ')').css({ 'border-bottom': '2px solid #198754' });
+            $('thead#shopify_outcomes_firstrow th:nth-child(' + columnNum + ')').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
+        }
+
+        //Calculate on price revenue change.
+        $('#shopify_monthly_revenue').change(
+            function () {
+                $.fn.allCalculations();
+                if (Number($('#shopify_monthly_revenue').val()) <= 4500) {
+                    $.fn.applyingColumnBorders(2);
+                }
+                else if (Number($('#shopify_monthly_revenue').val()) <= 39600) {
+                    $.fn.applyingColumnBorders(3)
+                }
+                else if (Number($('#shopify_monthly_revenue').val()) <= 494542) {
+                    $.fn.applyingColumnBorders(4)
+                }
+                else if (Number($('#shopify_monthly_revenue').val()) > 494542) {
+                    $.fn.applyingColumnBorders(5)
+                }
+            }
+        );
 
         //Credit card method (fee) change.
         $('input[type=radio][name="shopify_card_method"]').change(
@@ -29,122 +48,189 @@ jQuery(document).ready(
                 if (this.value == 'external_payment') {
                     $('#shopify_external_percent').prop('disabled', false)
                     $('#shopify_external_cents').prop('disabled', false)
+                    $.fn.allCalculations();
                 }
                 else {
                     $('#shopify_external_percent').prop('disabled', true)
                     $('#shopify_external_cents').prop('disabled', true)
+                    $.fn.allCalculations();
                 }
             }
         );
 
         //Calculate on billing method change.
-        $('input[type=radio][name="bc_billing_method"]').change(
+        $('input[type=radio][name="shopify_billing_method"]').change(
             function () {
                 $.fn.allCalculations();
             }
         );
 
         //Calculate on credit card method change.
-        $('input[type=radio][name="credit_card_method"]').change(
+        $('input[type=radio][name="shopify_card_method"]').change(
             function () {
                 $.fn.allCalculations();
             }
         );
 
         //Calculate on payment percent change.
-        $('#bc_payment_percent').change(
+        $('#shopify_external_percent').change(
             function () {
                 $.fn.allCalculations();
             }
         );
 
         //Calculate on payment cents change.
-        $('#bc_payment_cents').change(
+        $('#shopify_external_cents').change(
             function () {
                 $.fn.allCalculations();
             }
         );
 
         //Calculate on price revenue change.
-        $('#bc_price_revenue').change(
+        $('#shopify_monthly_revenue').change(
             function () {
                 $.fn.allCalculations();
-                if (Number($('#bc_price_revenue').val()) <= 50000) {
-                    $.fn.applyingColumnBorders(2);
-                }
-                else if (Number($('#bc_price_revenue').val()) <= 180000) {
-                    $.fn.applyingColumnBorders(3)
-                }
-                else if (Number($('#bc_price_revenue').val()) <= 400000) {
-                    $.fn.applyingColumnBorders(4)
-                }
-                else if (Number($('#bc_price_revenue').val()) > 400000) {
-                    $.fn.applyingColumnBorders(5)
-                }
             }
         );
 
-        //Method to update Standard Plan.
-        $.fn.updateStandardPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
-            let paypalFee = Number.parseFloat(((priceRevenue * paymentPercent) + paymentCents)).toFixed(2);
+        //Calculate on avg order value change.
+        $('#shopify_avg_order').change(
+            function () {
+                $.fn.allCalculations();
+            }
+        );
 
-            $('#bc_standard_paypal').html(paypalFee);
-            $('#bc_standard_total').html(Number.parseFloat((29.95 + Number(paypalFee)) * dicountPercentage).toFixed(2));
+        //Method to update Basic Basic Plan.
+        $.fn.updateBasicPlan = function (shopifyMonthlyRevenue, paymentPercent, paymentCents, avgOrderValue, dicountPercentage, transactionFee) {
+
+            let shopifyFee = Number(shopifyMonthlyRevenue * (paymentPercent / 100)) + Math.ceil((shopifyMonthlyRevenue) / (avgOrderValue)) * paymentCents / 100;
+            let planFee = 29 * dicountPercentage;
+            let totalFee = Number(planFee) + Number(shopifyFee) + Number(transactionFee);
+
+            $('#shopify_basic_total_fee').html(Number.parseFloat(totalFee).toFixed(2));
+            $('#shopify_basic_plan_fee').html(Number.parseFloat(planFee).toFixed(2));
+
+            let paymentMethod = $('input[type=radio][name="shopify_card_method"]:checked').val();
+
+            if (paymentMethod == 'shopify_payment') {
+                $('#shopify_basic_fee').html(Number.parseFloat(shopifyFee).toFixed(2));
+                $('#shopify_basic_fee_external').html(Number.parseFloat(0).toFixed(2));
+                $('#shopify_basic_transaction').html(Number.parseFloat(transactionFee).toFixed(2));
+            }
+            else if (paymentMethod == 'external_payment') {
+                $('#shopify_basic_fee').html(Number.parseFloat(0).toFixed(2));
+                $('#shopify_basic_fee_external').html(Number.parseFloat(shopifyFee).toFixed(2));
+                $('#shopify_basic_transaction').html(Number.parseFloat(transactionFee).toFixed(2));
+            }
+
+        }
+
+        //Method to update Shopify Plan.
+        $.fn.updateShopifyPlan = function (shopifyMonthlyRevenue, paymentPercent, paymentCents, avgOrderValue, dicountPercentage, transactionFee) {
+
+            let shopifyFee = Number(shopifyMonthlyRevenue * (paymentPercent / 100)) + Math.ceil((shopifyMonthlyRevenue) / (avgOrderValue)) * paymentCents / 100;
+            let planFee = 79 * dicountPercentage;
+            let totalFee = Number(planFee) + Number(shopifyFee) + Number(transactionFee);
+
+            $('#shopify_shopify_total_fee').html(Number.parseFloat(totalFee).toFixed(2));
+            $('#shopify_shopify_plan_fee').html(Number.parseFloat(planFee).toFixed(2));
+
+            let paymentMethod = $('input[type=radio][name="shopify_card_method"]:checked').val();
+
+            if (paymentMethod == 'shopify_payment') {
+                $('#shopify_shopify_fee').html(Number.parseFloat(shopifyFee).toFixed(2));
+                $('#shopify_shopify_fee_external').html(Number.parseFloat(0).toFixed(2));
+                $('#shopify_shopify_transaction').html(Number.parseFloat(transactionFee).toFixed(2));
+            }
+            else if (paymentMethod == 'external_payment') {
+                $('#shopify_shopify_fee').html(Number.parseFloat(0).toFixed(2));
+                $('#shopify_shopify_fee_external').html(Number.parseFloat(shopifyFee).toFixed(2));
+                $('#shopify_shopify_transaction').html(Number.parseFloat(transactionFee).toFixed(2));
+            }
+        }
+
+        //Method to update Advanced Plan.
+        $.fn.updateAdvancedPlan = function (shopifyMonthlyRevenue, paymentPercent, paymentCents, avgOrderValue, dicountPercentage, transactionFee) {
+
+            let shopifyFee = Number(shopifyMonthlyRevenue * (paymentPercent / 100)) + Math.ceil((shopifyMonthlyRevenue) / (avgOrderValue)) * paymentCents / 100;
+            let planFee = 299 * dicountPercentage;
+            let totalFee = Number(planFee) + Number(shopifyFee) + Number(transactionFee);
+
+            $('#shopify_advanced_total_fee').html(Number.parseFloat(totalFee).toFixed(2));
+            $('#shopify_advanced_plan_fee').html(Number.parseFloat(planFee).toFixed(2));
+
+            let paymentMethod = $('input[type=radio][name="shopify_card_method"]:checked').val();
+
+            if (paymentMethod == 'shopify_payment') {
+                $('#shopify_advanced_fee').html(Number.parseFloat(shopifyFee).toFixed(2));
+                $('#shopify_advanced_fee_external').html(Number.parseFloat(0).toFixed(2));
+                $('#shopify_advanced_transaction').html(Number.parseFloat(transactionFee).toFixed(2));
+            }
+            else if (paymentMethod == 'external_payment') {
+                $('#shopify_advanced_fee').html(Number.parseFloat(0).toFixed(2));
+                $('#shopify_advanced_fee_external').html(Number.parseFloat(shopifyFee).toFixed(2));
+                $('#shopify_advanced_transaction').html(Number.parseFloat(transactionFee).toFixed(2));
+            }
         }
 
         //Method to update Plus Plan.
-        $.fn.updatePlusPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
-            let paypalFee = Number.parseFloat(((priceRevenue * paymentPercent) + paymentCents)).toFixed(2);
+        $.fn.updatePlusPlan = function (shopifyMonthlyRevenue, paymentPercent, paymentCents, avgOrderValue, dicountPercentage, transactionFee) {
 
-            $('#bc_plus_paypal').html(paypalFee);
-            $('#bc_plus_total').html(Number.parseFloat((79.95 + Number(paypalFee)) * dicountPercentage).toFixed(2));
-        }
+            let shopifyFee = Number(shopifyMonthlyRevenue * (paymentPercent / 100)) + Math.ceil((shopifyMonthlyRevenue) / (avgOrderValue)) * paymentCents / 100;
+            let planFee = 2000 * dicountPercentage;
+            let totalFee = Number(planFee) + Number(shopifyFee) + Number(transactionFee);
 
-        //Method to update Pro Plan.
-        $.fn.updateProPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
-            let paypalFee = Number.parseFloat(((priceRevenue * paymentPercent) + paymentCents)).toFixed(2);
+            $('#shopify_plus_total_fee').html(Number.parseFloat(totalFee).toFixed(2));
+            $('#shopify_plus_plan_fee').html(Number.parseFloat(planFee).toFixed(2));
 
-            $('#bc_pro_paypal').html(paypalFee);
-            $('#bc_pro_total').html(Number.parseFloat((299.95 + Number(paypalFee)) * dicountPercentage).toFixed(2));
-        }
+            let paymentMethod = $('input[type=radio][name="shopify_card_method"]:checked').val();
 
-        //Method to update Enterprise Plan.
-        $.fn.updateEnterprisePlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
-            let paypalFee = Number.parseFloat(((priceRevenue * paymentPercent) + paymentCents)).toFixed(2);
-
-            $('#bc_enterprise_paypal').html(paypalFee);
-            $('#bc_enterprise_total').html(Number.parseFloat((2000 + Number(paypalFee)) * dicountPercentage).toFixed(2));
+            if (paymentMethod == 'shopify_payment') {
+                $('#shopify_plus_fee').html(Number.parseFloat(shopifyFee).toFixed(2));
+                $('#shopify_plus_fee_external').html(Number.parseFloat(0).toFixed(2));
+                $('#shopify_plus_transaction').html(Number.parseFloat(transactionFee).toFixed(2));
+            }
+            else if (paymentMethod == 'external_payment') {
+                $('#shopify_plus_fee').html(Number.parseFloat(0).toFixed(2));
+                $('#shopify_plus_fee_external').html(Number.parseFloat(shopifyFee).toFixed(2));
+                $('#shopify_plus_transaction').html(Number.parseFloat(transactionFee).toFixed(2));
+            }
         }
 
         //BigCommerce Pricing Fee all calculations.
         $.fn.allCalculations = function () {
-            let priceRevenue = $('#bc_price_revenue').val();
+            let shopifyMonthlyRevenue = $('#shopify_monthly_revenue').val();
+            let avgOrderValue = $('#shopify_avg_order').val();
             let paymentPercent = 0;
             let paymentCents = 0;
 
-            let billingMethod = $('input[type=radio][name="bc_billing_method"]:checked').val();
+            let billingMethod = $('input[type=radio][name="shopify_billing_method"]:checked').val();
             let dicountPercentage = 1;
+
             if (billingMethod == 'monthly') {
                 dicountPercentage = 1;
             }
             else if (billingMethod == 'annually') {
-                dicountPercentage = 0.8;
+                dicountPercentage = 0.9;
             }
 
-            let paymentMethod = $('input[type=radio][name="credit_card_method"]:checked').val();
-            if (paymentMethod == 'method_1') {
-                $.fn.updateStandardPlan(priceRevenue, 0.029, 0.003, dicountPercentage)
-                $.fn.updatePlusPlan(priceRevenue, 0.025, 0.003, dicountPercentage)
-                $.fn.updateProPlan(priceRevenue, 0.022, 0.003, dicountPercentage)
-                $.fn.updateEnterprisePlan(priceRevenue, 0.022, 0.003, dicountPercentage)
+            let paymentMethod = $('input[type=radio][name="shopify_card_method"]:checked').val();
+
+            if (paymentMethod == 'shopify_payment') {
+
+                $.fn.updateBasicPlan(shopifyMonthlyRevenue, 2.9, 30, avgOrderValue, dicountPercentage, 0);
+                $.fn.updateShopifyPlan(shopifyMonthlyRevenue, 2.6, 30, avgOrderValue, dicountPercentage, 0);
+                $.fn.updateAdvancedPlan(shopifyMonthlyRevenue, 2.4, 30, avgOrderValue, dicountPercentage, 0);
+                $.fn.updatePlusPlan(shopifyMonthlyRevenue, 2.15, 30, avgOrderValue, 1, 0);
             }
-            else if (paymentMethod == 'method_2') {
-                paymentPercent = $('#bc_payment_percent').val() / 100;
-                paymentCents = $('#bc_payment_cents').val() / 100;
-                $.fn.updateStandardPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
-                $.fn.updatePlusPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
-                $.fn.updateProPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
-                $.fn.updateEnterprisePlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
+            else if (paymentMethod == 'external_payment') {
+
+                paymentPercent = $('#shopify_external_percent').val();
+                paymentCents = $('#shopify_external_cents').val();
+                $.fn.updateBasicPlan(shopifyMonthlyRevenue, paymentPercent, paymentCents, avgOrderValue, dicountPercentage, shopifyMonthlyRevenue * 0.02);
+                $.fn.updateShopifyPlan(shopifyMonthlyRevenue, paymentPercent, paymentCents, avgOrderValue, dicountPercentage, shopifyMonthlyRevenue * 0.01);
+                $.fn.updateAdvancedPlan(shopifyMonthlyRevenue, paymentPercent, paymentCents, avgOrderValue, dicountPercentage, shopifyMonthlyRevenue * 0.005);
+                $.fn.updatePlusPlan(shopifyMonthlyRevenue, paymentPercent, paymentCents, avgOrderValue, 1, shopifyMonthlyRevenue * 0.0015);
             }
         }
 
