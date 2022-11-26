@@ -49,6 +49,9 @@ jQuery(document).ready(
             if (bep_calc_fields_filled()) {
                 $('.calc-bep-calc').attr('disabled', false);
             }
+            else{
+                $('.calc-bep-calc').attr('disabled', true);
+            }
         });
 
         //Break Even Point All Calculations.

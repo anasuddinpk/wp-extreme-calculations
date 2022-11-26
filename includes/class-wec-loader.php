@@ -106,6 +106,9 @@ if (!class_exists('WEC_Loader')) {
 
 			//Enqueuing Square Fee Calculator jQuery.
 			wp_enqueue_script('square-fee-calculator', plugin_dir_url(__DIR__) . 'assets/js/square-fee-calculator.js', array('jquery'), wp_rand());
+
+			//Enqueuing VAT Calculator jQuery.
+			wp_enqueue_script('vat-calculator', plugin_dir_url(__DIR__) . 'assets/js/vat-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 

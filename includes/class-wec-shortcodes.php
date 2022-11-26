@@ -42,6 +42,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('bigcommerce-pricing', array($this, 'returns_bigcommerce_pricing_calculator'));
             add_shortcode('shopify-pricing', array($this, 'returns_shopify_pricing_calculator'));
             add_shortcode('square-fee', array($this, 'returns_square_fee_calculator'));
+            add_shortcode('vat-calculator', array($this, 'returns_vat_calculator'));
         }
 
         /**
@@ -317,6 +318,20 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $square_fee = ob_get_clean();
             return $square_fee;
+        }
+
+        /**
+         * Returning the Value Added Calculator Calculator HTML by Shortcode.
+         * 
+         * @return String $vat_calculator VAT Calc's HTML.
+         */
+        public function returns_vat_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/value-added-tax.php';
+            ob_start();
+            include $path;
+            $vat_calculator = ob_get_clean();
+            return $vat_calculator;
         }
     }
 
