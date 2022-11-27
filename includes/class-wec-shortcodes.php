@@ -44,6 +44,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('square-fee', array($this, 'returns_square_fee_calculator'));
             add_shortcode('vat-calculator', array($this, 'returns_vat_calculator'));
             add_shortcode('inventory-period', array($this, 'returns_inventory_period_calculator'));
+            add_shortcode('subscription-billing', array($this, 'returns_subscription_billing_calculator'));
         }
 
         /**
@@ -347,6 +348,20 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $ipc_calculator = ob_get_clean();
             return $ipc_calculator;
+        }
+
+        /**
+         * Returning the Subscription Billing Calculator HTML by Shortcode.
+         * 
+         * @return String $sbc_calculator IPC Calc's HTML.
+         */
+        public function returns_subscription_billing_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/subscription-billing.php';
+            ob_start();
+            include $path;
+            $sbc_calculator = ob_get_clean();
+            return $sbc_calculator;
         }
     }
 

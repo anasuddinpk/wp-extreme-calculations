@@ -112,6 +112,9 @@ if (!class_exists('WEC_Loader')) {
 			
 			//Enqueuing Inventory Period Calculator jQuery.
 			wp_enqueue_script('ipc-calculator', plugin_dir_url(__DIR__) . 'assets/js/ipc-calculator.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Subscription Billing Calculator jQuery.
+			wp_enqueue_script('subscription-billing-calculator', plugin_dir_url(__DIR__) . 'assets/js/subscription-billing-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 
