@@ -43,6 +43,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('shopify-pricing', array($this, 'returns_shopify_pricing_calculator'));
             add_shortcode('square-fee', array($this, 'returns_square_fee_calculator'));
             add_shortcode('vat-calculator', array($this, 'returns_vat_calculator'));
+            add_shortcode('inventory-period', array($this, 'returns_inventory_period_calculator'));
         }
 
         /**
@@ -321,7 +322,7 @@ if (!class_exists('WEC_Shortcodes')) {
         }
 
         /**
-         * Returning the Value Added Calculator Calculator HTML by Shortcode.
+         * Returning the Value Added Calculator HTML by Shortcode.
          * 
          * @return String $vat_calculator VAT Calc's HTML.
          */
@@ -332,6 +333,20 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $vat_calculator = ob_get_clean();
             return $vat_calculator;
+        }
+
+        /**
+         * Returning the Inventory Period Calculator HTML by Shortcode.
+         * 
+         * @return String $ipc_calculator IPC Calc's HTML.
+         */
+        public function returns_inventory_period_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/inventory-period.php';
+            ob_start();
+            include $path;
+            $ipc_calculator = ob_get_clean();
+            return $ipc_calculator;
         }
     }
 

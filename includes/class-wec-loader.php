@@ -109,6 +109,9 @@ if (!class_exists('WEC_Loader')) {
 
 			//Enqueuing VAT Calculator jQuery.
 			wp_enqueue_script('vat-calculator', plugin_dir_url(__DIR__) . 'assets/js/vat-calculator.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Inventory Period Calculator jQuery.
+			wp_enqueue_script('ipc-calculator', plugin_dir_url(__DIR__) . 'assets/js/ipc-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 
