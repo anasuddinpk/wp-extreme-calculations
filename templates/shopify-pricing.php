@@ -573,22 +573,22 @@
                             <tr>
                                 <td></td>
                                 <td class="text-center align-middle">
-                                    <a href="https://ecombusinesshub.com/go/bigcommerce"
+                                    <a href="http://ecombusinesshub.com/go/shopify" target="_blank"
                                         class="btn btn-success text-light rounded-5 py-1 px-3 shopify_trynow">Try
                                         Now</a>
                                 </td>
                                 <td class="text-center align-middle">
-                                    <a href="https://ecombusinesshub.com/go/bigcommerce"
+                                    <a href="http://ecombusinesshub.com/go/shopify" target="_blank"
                                         class="btn btn-success text-light rounded-5 py-1 px-3 shopify_trynow">Try
                                         Now</a>
                                 </td>
                                 <td class="text-center align-middle">
-                                    <a href="https://ecombusinesshub.com/go/bigcommerce"
+                                    <a href="http://ecombusinesshub.com/go/shopify" target="_blank"
                                         class="btn btn-success text-light rounded-5 py-1 px-3 shopify_trynow">Try
                                         Now</a>
                                 </td>
                                 <td class="text-center align-middle">
-                                    <a href="https://ecombusinesshub.com/go/bigcommerce"
+                                    <a href="http://ecombusinesshub.com/go/shopify" target="_blank"
                                         class="btn btn-success text-light rounded-5 py-1 px-3 shopify_trynow">Try
                                         Now</a>
                                 </td>
