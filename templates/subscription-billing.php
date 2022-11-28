@@ -7,8 +7,8 @@
             <div class="col-md-6 mb-1">
 
                 <div class="form-floating">
-                    <input type="number" class="form-control ipc-calc-fields rounded-0" id="sbc_monthly_reveue"
-                        placeholder="Monthly Revenue ($)">
+                    <input type="number" class="form-control sbc-calc-fields rounded-0" id="sbc_monthly_reveue"
+                        placeholder="Monthly Revenue ($)" value="50">
                     <label for="sbc_monthly_reveue">Monthly Revenue ($)</label>
                 </div>
 
@@ -32,7 +32,7 @@
 
             <label for="sbc_no_of_subscribers">Number of Subscribers</label>
             <div class="form-floating">
-                <input type="range" class="w-100" min="1" max="10000" step="1" id="sbc_no_of_subscribers">
+                <input type="range" class="w-100" min="1" max="10000" step="1" id="sbc_no_of_subscribers" value="50">
                 <output><b id="sbc_no_of_subscribers_output">50</b></output>
             </div>
 
@@ -46,7 +46,8 @@
             <div class="d-flex w-100 justify-content-between">
                 <h4 class="mb-1">Subscription Billing Calculator Outcomes</h4>
             </div>
-            <p class="mb-1">Compare prices of subscription billing services, tell us what you charge and find the best price:</p>
+            <p class="mb-1">Compare prices of subscription billing services, tell us what you charge and find the best
+                price:</p>
         </span>
 
         <div class="list-group rounded-0 rounded-bottom mx-0">
@@ -57,11 +58,11 @@
                     <div class="col-lg-4 col-md-4 px-4">
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 rounded bg-light d-flex sbc_chargify flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">Chargify</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_chargify">$111</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://www.chargify.com/" target="_blank" type="button"
                                     class="btn btn-success text-light py-1">Go to site&nbsp;&nbsp; <i
@@ -70,11 +71,11 @@
                         </div>
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 rounded bg-light d-flex sbc_stripe flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">Stripe</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_stripe">$97</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://stripe.com/" target="_blank" type="button"
                                     class="btn btn-success text-light py-1">Go
@@ -83,11 +84,11 @@
                         </div>
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 rounded bg-light d-flex sbc_paypal flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">PayPal</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_paypal">$111</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://www.paypal.com/us/business" target="_blank" type="button"
                                     class="btn btn-success text-light py-1">Go to site&nbsp;&nbsp; <i
@@ -100,11 +101,11 @@
                     <div class="col-lg-4 col-md-4 px-4">
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 rounded sbc_plans bg-light sbc_authorize d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">Authorize.net</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_authorize">$126</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://account.authorize.net/ui/themes/anet/Error.aspx?error=profile_not_found"
                                     target="_blank" type="button" class="btn btn-success text-light py-1">Go to
@@ -113,11 +114,11 @@
                         </div>
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column justify-content-center text-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 border-success rounded bg-light sbc_plans d-flex sbc_braintree flex-column justify-content-center text-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">Braintree</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_braintree">$44</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://www.braintreepayments.com/features/recurring-billing" target="_blank"
                                     type="button" class="btn btn-success text-light py-1">Go to site&nbsp;&nbsp; <i
@@ -126,11 +127,11 @@
                         </div>
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column justify-content-center text-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 rounded bg-light sbc_plans sbc_chargebee d-flex flex-column justify-content-center text-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">ChargeBee</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_chargebee">$112</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://www.chargebee.com/?utm_source=refersion&utm_medium=affiliate&utm_campaign=0fc285"
                                     target="_blank" type="button" class="btn btn-success text-light py-1">Go to
@@ -143,11 +144,11 @@
                     <div class="col-lg-4 col-md-4 px-4">
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 rounded bg-light sbc_plans sbc_paddle d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">Paddle</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_paddle">$150</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://www.paddle.com/" target="_blank" type="button"
                                     class="btn btn-success text-light py-1">Go to site&nbsp;&nbsp; <i
@@ -156,11 +157,11 @@
                         </div>
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 rounded bg-light sbc_plans sbc_chedargetter d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">Chedar Getter</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_chedargetter">$114</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://cheddargetter.com/" target="_blank" type="button"
                                     class="btn btn-success text-light py-1">Go to site&nbsp;&nbsp; <i
@@ -169,11 +170,11 @@
                         </div>
 
                         <div
-                            class="row border border-1 rounded bg-light d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
+                            class="row border border-2 rounded bg-light sbc_plans sbc_paywhirl d-flex flex-column text-center justify-content-center align-items-center p-2 py-3 mt-3">
 
                             <div class="fw-bolder">PayWhirl</div>
-                            <div class="fw-bolder my-2">$126</div>
-                            <div>PER MONTH</div>
+                            <div class="fw-bolder my-2 fs-3" id="sbc_paywhirl">$75</div>
+                            <div class="font-monospace">PER MONTH</div>
                             <div class="mt-2">
                                 <a href="https://app.paywhirl.com/" target="_blank" type="button"
                                     class="btn btn-success text-light py-1">Go to site&nbsp;&nbsp; <i
