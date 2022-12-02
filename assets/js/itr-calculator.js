@@ -36,6 +36,9 @@ jQuery(document).ready(
                 if (itr_calc_fields_filled()) {
                     $('.calc-itr-calc').attr('disabled', false);
                 }
+                else {
+                    $('.calc-itr-calc').attr('disabled', true);
+                }
             }
         );
 

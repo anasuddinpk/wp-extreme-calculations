@@ -45,6 +45,8 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('vat-calculator', array($this, 'returns_vat_calculator'));
             add_shortcode('inventory-period', array($this, 'returns_inventory_period_calculator'));
             add_shortcode('subscription-billing', array($this, 'returns_subscription_billing_calculator'));
+            add_shortcode('inventory-turnover', array($this, 'returns_inventory_turnover_calculator'));
+            add_shortcode('shopify-store-value', array($this, 'returns_shopify_store_value_calculator'));
         }
 
         /**
@@ -362,6 +364,34 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $sbc_calculator = ob_get_clean();
             return $sbc_calculator;
+        }
+
+        /**
+         * Returning the Inventory Turnover Calculator HTML by Shortcode.
+         * 
+         * @return String $inv_turnover Inventory Turnover Calc's HTML.
+         */
+        public function returns_inventory_turnover_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/inventory-turnover.php';
+            ob_start();
+            include $path;
+            $inv_turnover = ob_get_clean();
+            return $inv_turnover;
+        }
+
+        /**
+         * Returning the Shopify Store Value Calculator HTML by Shortcode.
+         * 
+         * @return String $shopify_store_value Shopify Store Value Calc's HTML.
+         */
+        public function returns_shopify_store_value_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/shopify-store-value.php';
+            ob_start();
+            include $path;
+            $shopify_store_value = ob_get_clean();
+            return $shopify_store_value;
         }
     }
 

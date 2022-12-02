@@ -115,6 +115,12 @@ if (!class_exists('WEC_Loader')) {
 			
 			//Enqueuing Subscription Billing Calculator jQuery.
 			wp_enqueue_script('subscription-billing-calculator', plugin_dir_url(__DIR__) . 'assets/js/subscription-billing-calculator.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Inventory Turnover Calculator jQuery.
+			wp_enqueue_script('inv-turnover-calculator', plugin_dir_url(__DIR__) . 'assets/js/inv-turnover-calculator.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Shopify Store Value Calculator jQuery.
+			wp_enqueue_script('shopify-store-value-calculator', plugin_dir_url(__DIR__) . 'assets/js/shopify-store-value-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 
