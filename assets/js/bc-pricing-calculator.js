@@ -12,7 +12,7 @@ jQuery(document).ready(
         $('table.bc-table').find('tr td:nth-child(2)').css({ 'border-inline': '2px solid #198754' });
         $('tr#bc_outcomes_lastrow td:nth-child(2)').css({ 'border-bottom': '2px solid #198754' });
         $('thead#bc_outcomes_firstrow th:nth-child(2)').css({ 'border-top': '2px solid #198754', 'border-inline': '2px solid #198754' });
-        $.fn.applyingColumnBorders = function (columnNum) {
+        $.fn.BCapplyingColumnBorders = function (columnNum) {
 
             $('table.bc-table').find('tr td*').css({ 'border': '1px solid #dee2e6' });
             $('tr#bc_outcomes_lastrow td*').css({ 'border': '1px solid #dee2e6' });
@@ -34,58 +34,53 @@ jQuery(document).ready(
                     $('#bc_payment_percent').prop('disabled', true)
                     $('#bc_payment_cents').prop('disabled', true)
                 }
+                $.fn.bigCommerce_allCalculations();
             }
         );
 
         //Calculate on billing method change.
         $('input[type=radio][name="bc_billing_method"]').change(
             function () {
-                $.fn.allCalculations();
-            }
-        );
-
-        //Calculate on credit card method change.
-        $('input[type=radio][name="credit_card_method"]').change(
-            function () {
-                $.fn.allCalculations();
+                $.fn.bigCommerce_allCalculations();
             }
         );
 
         //Calculate on payment percent change.
         $('#bc_payment_percent').change(
             function () {
-                $.fn.allCalculations();
+                $.fn.bigCommerce_allCalculations();
             }
         );
 
         //Calculate on payment cents change.
         $('#bc_payment_cents').change(
             function () {
-                $.fn.allCalculations();
+                $.fn.bigCommerce_allCalculations();
             }
         );
 
         //Calculate on price revenue change.
         $('#bc_price_revenue').change(
             function () {
-                $.fn.allCalculations();
+
                 if (Number($('#bc_price_revenue').val()) <= 50000) {
-                    $.fn.applyingColumnBorders(2);
+                    $.fn.BCapplyingColumnBorders(2);
                 }
                 else if (Number($('#bc_price_revenue').val()) <= 180000) {
-                    $.fn.applyingColumnBorders(3)
+                    $.fn.BCapplyingColumnBorders(3)
                 }
                 else if (Number($('#bc_price_revenue').val()) <= 400000) {
-                    $.fn.applyingColumnBorders(4)
+                    $.fn.BCapplyingColumnBorders(4)
                 }
                 else if (Number($('#bc_price_revenue').val()) > 400000) {
-                    $.fn.applyingColumnBorders(5)
+                    $.fn.BCapplyingColumnBorders(5)
                 }
+                $.fn.bigCommerce_allCalculations();
             }
         );
 
         //Method to update Standard Plan.
-        $.fn.updateStandardPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
+        $.fn.BCupdateStandardPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
             let paypalFee = Number.parseFloat(((priceRevenue * paymentPercent) + paymentCents)).toFixed(2);
 
             $('#bc_standard_paypal').html(paypalFee);
@@ -93,7 +88,7 @@ jQuery(document).ready(
         }
 
         //Method to update Plus Plan.
-        $.fn.updatePlusPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
+        $.fn.BCupdatePlusPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
             let paypalFee = Number.parseFloat(((priceRevenue * paymentPercent) + paymentCents)).toFixed(2);
 
             $('#bc_plus_paypal').html(paypalFee);
@@ -101,7 +96,7 @@ jQuery(document).ready(
         }
 
         //Method to update Pro Plan.
-        $.fn.updateProPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
+        $.fn.BCupdateProPlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
             let paypalFee = Number.parseFloat(((priceRevenue * paymentPercent) + paymentCents)).toFixed(2);
 
             $('#bc_pro_paypal').html(paypalFee);
@@ -109,7 +104,7 @@ jQuery(document).ready(
         }
 
         //Method to update Enterprise Plan.
-        $.fn.updateEnterprisePlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
+        $.fn.BCupdateEnterprisePlan = function (priceRevenue, paymentPercent, paymentCents, dicountPercentage) {
             let paypalFee = Number.parseFloat(((priceRevenue * paymentPercent) + paymentCents)).toFixed(2);
 
             $('#bc_enterprise_paypal').html(paypalFee);
@@ -117,7 +112,8 @@ jQuery(document).ready(
         }
 
         //BigCommerce Pricing Fee all calculations.
-        $.fn.allCalculations = function () {
+        $.fn.bigCommerce_allCalculations = function () {
+
             let priceRevenue = $('#bc_price_revenue').val();
             let paymentPercent = 0;
             let paymentCents = 0;
@@ -133,18 +129,18 @@ jQuery(document).ready(
 
             let paymentMethod = $('input[type=radio][name="credit_card_method"]:checked').val();
             if (paymentMethod == 'method_1') {
-                $.fn.updateStandardPlan(priceRevenue, 0.029, 0.003, dicountPercentage)
-                $.fn.updatePlusPlan(priceRevenue, 0.025, 0.003, dicountPercentage)
-                $.fn.updateProPlan(priceRevenue, 0.022, 0.003, dicountPercentage)
-                $.fn.updateEnterprisePlan(priceRevenue, 0.022, 0.003, dicountPercentage)
+                $.fn.BCupdateStandardPlan(priceRevenue, 0.029, 0.003, dicountPercentage)
+                $.fn.BCupdatePlusPlan(priceRevenue, 0.025, 0.003, dicountPercentage)
+                $.fn.BCupdateProPlan(priceRevenue, 0.022, 0.003, dicountPercentage)
+                $.fn.BCupdateEnterprisePlan(priceRevenue, 0.022, 0.003, dicountPercentage)
             }
             else if (paymentMethod == 'method_2') {
                 paymentPercent = $('#bc_payment_percent').val() / 100;
                 paymentCents = $('#bc_payment_cents').val() / 100;
-                $.fn.updateStandardPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
-                $.fn.updatePlusPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
-                $.fn.updateProPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
-                $.fn.updateEnterprisePlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
+                $.fn.BCupdateStandardPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
+                $.fn.BCupdatePlusPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
+                $.fn.BCupdateProPlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
+                $.fn.BCupdateEnterprisePlan(priceRevenue, paymentPercent, paymentCents, dicountPercentage)
             }
         }
 
