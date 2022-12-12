@@ -121,6 +121,9 @@ if (!class_exists('WEC_Loader')) {
 			
 			//Enqueuing Cost per Order Calculator jQuery.
 			wp_enqueue_script('cpo-calculator', plugin_dir_url(__DIR__) . 'assets/js/cpo-calculator.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Print on Demand Income Calculator jQuery.
+			wp_enqueue_script('pod-income-calculator', plugin_dir_url(__DIR__) . 'assets/js/pod-income-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 

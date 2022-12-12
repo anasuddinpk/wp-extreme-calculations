@@ -47,6 +47,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('subscription-billing', array($this, 'returns_subscription_billing_calculator'));
             add_shortcode('shopify-store-value', array($this, 'returns_shopify_store_value_calculator'));
             add_shortcode('cpo-calculator', array($this, 'returns_cpo_calculator'));
+            add_shortcode('print-on-demand-income', array($this, 'returns_pod_income_calculator'));
         }
 
         /**
@@ -392,6 +393,20 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $cpo_calc = ob_get_clean();
             return $cpo_calc;
+        }
+
+        /**
+         * Returning the Print on Demand Income Calculator HTML by Shortcode.
+         * 
+         * @return String $pod_income POD Income Calc's HTML.
+         */
+        public function returns_pod_income_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/print-on-demand-income.php';
+            ob_start();
+            include $path;
+            $pod_income = ob_get_clean();
+            return $pod_income;
         }
     }
 
