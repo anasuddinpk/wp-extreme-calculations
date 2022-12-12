@@ -39,6 +39,9 @@ jQuery(document).ready(
             if (cpm_calc_fields_filled()) {
                 $('.calc-cpm-calc').attr('disabled', false);
             }
+            else {
+                $('.calc-cpo-calc').attr('disabled', true);
+            }
         });
 
         //CPM All Calculations.

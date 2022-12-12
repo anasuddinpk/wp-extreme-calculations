@@ -118,6 +118,9 @@ if (!class_exists('WEC_Loader')) {
 			
 			//Enqueuing Shopify Store Value Calculator jQuery.
 			wp_enqueue_script('shopify-store-value-calculator', plugin_dir_url(__DIR__) . 'assets/js/shopify-store-value-calculator.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Cost per Order Calculator jQuery.
+			wp_enqueue_script('cpo-calculator', plugin_dir_url(__DIR__) . 'assets/js/cpo-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 
