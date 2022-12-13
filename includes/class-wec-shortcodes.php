@@ -48,6 +48,9 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('shopify-store-value', array($this, 'returns_shopify_store_value_calculator'));
             add_shortcode('cpo-calculator', array($this, 'returns_cpo_calculator'));
             add_shortcode('print-on-demand-income', array($this, 'returns_pod_income_calculator'));
+            add_shortcode('dimensional-weight-calculator', array($this, 'returns_dim_weight_calculator'));
+            add_shortcode('amazon-fba', array($this, 'returns_amazon_fba_calculator'));
+            add_shortcode('cost-of-lost-customers', array($this, 'returns_cost_of_lost_customers_calculator'));
         }
 
         /**
@@ -407,6 +410,48 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $pod_income = ob_get_clean();
             return $pod_income;
+        }
+
+        /**
+         * Returning the Dimensional Weight Calculator HTML by Shortcode.
+         * 
+         * @return String $dim_weight Dim-Weight Calc's HTML.
+         */
+        public function returns_dim_weight_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/dimensional-weight.php';
+            ob_start();
+            include $path;
+            $dim_weight = ob_get_clean();
+            return $dim_weight;
+        }
+
+        /**
+         * Returning the Amazon FBA Calculator HTML by Shortcode.
+         * 
+         * @return String $amazon_fba Dim-Weight Calc's HTML.
+         */
+        public function returns_amazon_fba_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/amazon-fba.php';
+            ob_start();
+            include $path;
+            $amazon_fba = ob_get_clean();
+            return $amazon_fba;
+        }
+
+        /**
+         * Returning the Cost of Lost Customers Calculator HTML by Shortcode.
+         * 
+         * @return String $col_customers COL-Customers Calc's HTML.
+         */
+        public function returns_cost_of_lost_customers_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/cost-of-lost-customers.php';
+            ob_start();
+            include $path;
+            $col_customers = ob_get_clean();
+            return $col_customers;
         }
     }
 

@@ -124,6 +124,9 @@ if (!class_exists('WEC_Loader')) {
 			
 			//Enqueuing Print on Demand Income Calculator jQuery.
 			wp_enqueue_script('pod-income-calculator', plugin_dir_url(__DIR__) . 'assets/js/pod-income-calculator.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Amazon FBA Calculator jQuery.
+			wp_enqueue_script('amazon-fba-calculator', plugin_dir_url(__DIR__) . 'assets/js/amazon-fba-calculator.js', array('jquery'), wp_rand());
 		}
 	}
 
