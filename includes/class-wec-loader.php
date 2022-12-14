@@ -127,6 +127,9 @@ if (!class_exists('WEC_Loader')) {
 			
 			//Enqueuing Amazon FBA Calculator jQuery.
 			wp_enqueue_script('amazon-fba-calculator', plugin_dir_url(__DIR__) . 'assets/js/amazon-fba-calculator.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Cost of Lost Customers Calculator jQuery.
+			wp_enqueue_script('cost-of-lost-customers', plugin_dir_url(__DIR__) . 'assets/js/cost-of-lost-customers.js', array('jquery'), wp_rand());
 		}
 	}
 

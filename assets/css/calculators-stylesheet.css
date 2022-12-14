@@ -151,7 +151,8 @@ td i.fa-times {
 
 .wec-fs-s2,
 td a.bc_trynow,
-td a.shopify_trynow {
+td a.shopify_trynow,
+label.col-cust-x-labels {
   font-size: 0.85rem !important;
 }
 

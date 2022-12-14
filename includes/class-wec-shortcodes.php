@@ -51,6 +51,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('dimensional-weight-calculator', array($this, 'returns_dim_weight_calculator'));
             add_shortcode('amazon-fba', array($this, 'returns_amazon_fba_calculator'));
             add_shortcode('cost-of-lost-customers', array($this, 'returns_cost_of_lost_customers_calculator'));
+            add_shortcode('email-marketing-roi', array($this, 'returns_email_marketin_calculator'));
         }
 
         /**
