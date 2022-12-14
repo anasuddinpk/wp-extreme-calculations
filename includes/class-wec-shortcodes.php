@@ -51,7 +51,7 @@ if (!class_exists('WEC_Shortcodes')) {
             add_shortcode('dimensional-weight-calculator', array($this, 'returns_dim_weight_calculator'));
             add_shortcode('amazon-fba', array($this, 'returns_amazon_fba_calculator'));
             add_shortcode('cost-of-lost-customers', array($this, 'returns_cost_of_lost_customers_calculator'));
-            add_shortcode('email-marketing-roi', array($this, 'returns_email_marketin_calculator'));
+            add_shortcode('email-marketing-roi', array($this, 'returns_email_marketing_roi_calculator'));
         }
 
         /**
@@ -453,6 +453,20 @@ if (!class_exists('WEC_Shortcodes')) {
             include $path;
             $col_customers = ob_get_clean();
             return $col_customers;
+        }
+
+        /**
+         * Returning the Email Marketing ROI Calculator HTML by Shortcode.
+         * 
+         * @return String $email_m_roi Email Marketing ROI Calc's HTML.
+         */
+        public function returns_email_marketing_roi_calculator()
+        {
+            $path = plugin_dir_path(__DIR__) . 'templates/email-marketing-roi.php';
+            ob_start();
+            include $path;
+            $email_m_roi = ob_get_clean();
+            return $email_m_roi;
         }
     }
 

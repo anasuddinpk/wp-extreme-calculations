@@ -130,6 +130,9 @@ if (!class_exists('WEC_Loader')) {
 			
 			//Enqueuing Cost of Lost Customers Calculator jQuery.
 			wp_enqueue_script('cost-of-lost-customers', plugin_dir_url(__DIR__) . 'assets/js/cost-of-lost-customers.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Email Marketing ROI Calculator jQuery.
+			wp_enqueue_script('email-marketing-roi', plugin_dir_url(__DIR__) . 'assets/js/email-marketing-roi.js', array('jquery'), wp_rand());
 		}
 	}
 
