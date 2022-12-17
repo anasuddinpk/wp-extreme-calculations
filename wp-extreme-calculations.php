@@ -3,8 +3,8 @@
 /**
  * Plugin Name: WP Extreme Calculations
  * Plugin URI: https://github.com/anasuddinpk/wp-extreme-calculations
- * Description: Made for adding about 23 specialized calculators by using shortcodes on WordPress templates.
- * Version: 1.1.5
+ * Description: Made for adding about 29 specialized calculators by using shortcodes on WordPress templates.
+ * Version: 1.1.7
  * Author: Anas Uddin
  * Author URI: https://www.linkedin.com/in/anasuddinpk/
  * Text Domain: wp-extreme-calculations

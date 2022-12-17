@@ -133,6 +133,9 @@ if (!class_exists('WEC_Loader')) {
 			
 			//Enqueuing Email Marketing ROI Calculator jQuery.
 			wp_enqueue_script('email-marketing-roi', plugin_dir_url(__DIR__) . 'assets/js/email-marketing-roi.js', array('jquery'), wp_rand());
+			
+			//Enqueuing Dimensional Weight Calculator jQuery.
+			wp_enqueue_script('dimensional-weight', plugin_dir_url(__DIR__) . 'assets/js/dimensional-weight.js', array('jquery'), wp_rand());
 		}
 	}
 

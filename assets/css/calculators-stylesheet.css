@@ -91,7 +91,8 @@ input[type="radio"][name="skrill_method"]:focus,
 input[type="radio"][name="skrill_transfer_option"]:focus,
 input[type="radio"][name="skrill_skrill_option"]:focus,
 div.input-group input.form-control:focus,
-select#shopify_currency:focus input[type="radio"]:active {
+select#shopify_currency:focus input[type="radio"]:active,
+select.dim-weight-ans-selects:focus {
   box-shadow: none !important;
   border: 1px solid #198754 !important;
 }

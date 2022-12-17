@@ -19,6 +19,7 @@ jQuery(document).ready(
                 $('.calc-pod-income-calc').attr('disabled', '');
 
                 $('select[name=pod-income-sales-option]').prop("selectedIndex", 0);
+
             }
 
         );
@@ -34,6 +35,52 @@ jQuery(document).ready(
 
             });
             return isFiled;
+        }
+
+        //Removes commas.
+        function pod_income_commas_remover(num) {
+            let answer = String(num);
+            answer = answer.replace(/\,/g, '');
+            return answer;
+        }
+
+        //Answer formatter.
+        function pod_income_ans_formatter(num) {
+            return (num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function pod_income_borders_applier(revenue) {
+
+            $('tbody#pod_income_table_rows').children().removeClass('bg-success text-light fw-bold');
+
+            if (revenue < 5) {
+                $('tr.pod_inc_r_1').addClass(' bg-success text-light fw-bold ');
+            }
+            else if (revenue >= 5 && revenue < 10) {
+                $('tr.pod_inc_r_2').addClass(' bg-success text-light fw-bold ');
+            }
+            else if (revenue >= 10 && revenue < 30) {
+                $('tr.pod_inc_r_3').addClass(' bg-success text-light fw-bold ');
+            }
+            else if (revenue >= 30 && revenue < 50) {
+                $('tr.pod_inc_r_4').addClass(' bg-success text-light fw-bold ');
+            }
+            else if (revenue >= 50 && revenue < 70) {
+                $('tr.pod_inc_r_5').addClass(' bg-success text-light fw-bold ');
+            }
+            else if (revenue >= 70 && revenue < 100) {
+                $('tr.pod_inc_r_6').addClass(' bg-success text-light fw-bold ');
+            }
+            else if (revenue >= 100 && revenue < 200) {
+                $('tr.pod_inc_r_7').addClass(' bg-success text-light fw-bold ');
+            }
+            else if (revenue >= 200 && revenue < 400) {
+                $('tr.pod_inc_r_8').addClass(' bg-success text-light fw-bold ');
+            }
+            else if (revenue >= 400) {
+                $('tr.pod_inc_r_9').addClass(' bg-success text-light fw-bold ');
+            }
+
         }
 
         //Enabling the Calculate button if all fields are filled.
@@ -74,6 +121,34 @@ jQuery(document).ready(
                     $('.pod_income_calc2').html('$' + (Math.round(MonthlyIncome)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                     $('.pod_income_calc3').html('$' + (Math.round(YearlyIncome)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                 }
+
+                let revenuePer_Sale = pod_income_commas_remover($('input#pod_income_revenue').val());
+                let temp = 0;
+                let pickUpId = '';
+                let dropOffId = '';
+
+                for (let i = 1; i <= 9; i++) {
+
+                    for (let j = 1; j <= 3; j++) {
+
+                        pickUpId = 'span#pod_income_' + i + '' + j;
+                        dropOffId = 'span#pod_income_' + i + '' + (j + 3);
+
+                        temp = pod_income_commas_remover($(pickUpId).html());
+
+                        if (j == 1) {
+                            $(dropOffId).html(pod_income_ans_formatter(Number.parseFloat(revenuePer_Sale * temp).toFixed(2)));
+                        }
+                        else {
+                            $(dropOffId).html(pod_income_ans_formatter(revenuePer_Sale * temp));
+                        }
+
+                    }
+
+                    temp = 0; pickUpId = ''; dropOffId = '';
+                }
+
+                pod_income_borders_applier(NoOfSales);
 
             }
         );

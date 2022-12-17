@@ -89,8 +89,8 @@
         <div class="row g-2">
 
             <div class="col-md-6 col-sm-6">
-                <button type="button"
-                    class="btn btn-lg btn-success extreme-calc-button calc-em-roi-calc rounded-0 px-4">Calculate</button>
+                <button type="button" class="btn btn-lg btn-success extreme-calc-button calc-em-roi-calc rounded-0 px-4"
+                    disabled>Calculate</button>
                 <button type="button"
                     class="btn btn-lg btn-outline-success reset-em-roi-calc mx-1 rounded-0 px-3">Reset</button>
             </div>
